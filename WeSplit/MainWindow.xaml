@@ -7,8 +7,50 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1024">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>-->
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFD8D8D8" RenderingBias="Quality" ShadowDepth="1" />
+            </Grid.Effect>
+
+            <Grid Background="#FFA46FE4">
+                <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFBC96EA" FontSize="16"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1">
+                <Button Margin="10">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DASHBOARD"/>
+                    </Grid>
+                </Button>
+                
+                <Button Margin="10">
+                    <Grid Width="200">
+                        <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="DASHBOARD"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
