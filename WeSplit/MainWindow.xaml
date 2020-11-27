@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="600" Width="1024">
+        Title="MainWindow" Height="600" Width="1024"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
@@ -51,6 +52,12 @@
                     </Grid>
                 </Button>
             </StackPanel>
+
+            
+        </Grid>
+
+        <Grid Grid.Column="2" x:Name="GridPrinciple">
+            
         </Grid>
     </Grid>
 </Window>
