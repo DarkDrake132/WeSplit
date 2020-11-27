@@ -23,6 +23,20 @@ namespace WeSplit
         public MainWindow()
         {
             InitializeComponent();
+            GridPrinciple.Children.Clear();
+            GridPrinciple.Children.Add(new onGoing());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GridPrinciple.Children.Clear();
+            GridPrinciple.Children.Add(new onGoing());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            GridPrinciple.Children.Clear();
+            GridPrinciple.Children.Add(new usedToGo());
         }
     }
 }

@@ -22,3 +22,7 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_1812017
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.CopyComplete
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\onGoing.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\usedToGo.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\onGoing.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\usedToGo.baml
