@@ -31,12 +31,16 @@ namespace WeSplit
         {
             GridPrinciple.Children.Clear();
             GridPrinciple.Children.Add(new onGoing());
+            onGoing_Button.Background = Brushes.Black;
+            haveBeen_Button.Background = Brushes.DimGray;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             GridPrinciple.Children.Clear();
             GridPrinciple.Children.Add(new usedToGo());
+            haveBeen_Button.Background = Brushes.Black;
+            onGoing_Button.Background = Brushes.DimGray;
         }
     }
 }

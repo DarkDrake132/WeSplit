@@ -38,15 +38,15 @@
             </Grid>
 
             <StackPanel Grid.Row="1">
-                <Button Margin="10" Click="Button_Click">
-                    <Grid Width="200">
+                <Button Name="onGoing_Button" Margin="10" Click="Button_Click" Background="DimGray" BorderBrush="Transparent">
+                    <Grid Width="145">
                         <materialDesign:PackIcon Kind="SeatReclineExtra" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Đang đi"/>
                     </Grid>
                 </Button>
                 
-                <Button Margin="10" Click="Button_Click_1">
-                    <Grid Width="200">
+                <Button Name="haveBeen_Button" Margin="10" Click="Button_Click_1" Background="DimGray" BorderBrush="Transparent">
+                    <Grid Width="145">
                         <materialDesign:PackIcon Kind="Seal" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Đã từng đi"/>
                     </Grid>
