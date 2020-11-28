@@ -20,6 +20,7 @@ namespace WeSplit
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,19 +28,19 @@ namespace WeSplit
             GridPrinciple.Children.Add(new onGoing());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void onGoing_Button_Click(object sender, RoutedEventArgs e)
         {
             GridPrinciple.Children.Clear();
             GridPrinciple.Children.Add(new onGoing());
             onGoing_Button.Background = Brushes.Black;
-            haveBeen_Button.Background = Brushes.DimGray;
+            usedToGo_Button.Background = Brushes.DimGray;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void usedToGo_Button_Click(object sender, RoutedEventArgs e)
         {
             GridPrinciple.Children.Clear();
             GridPrinciple.Children.Add(new usedToGo());
-            haveBeen_Button.Background = Brushes.Black;
+            usedToGo_Button.Background = Brushes.Black;
             onGoing_Button.Background = Brushes.DimGray;
         }
     }

@@ -1,31 +1,3 @@
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\WeSplit.exe.config
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\WeSplit.exe
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\WeSplit.pdb
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\MainWindow.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\App.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit_MarkupCompile.cache
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit_MarkupCompile.lref
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\MainWindow.baml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\ResourceXAML\MainResource.baml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.g.resources
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.Properties.Resources.resources
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.GenerateResource.cache
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.CoreCompileInputs.cache
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.exe
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.pdb
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\App.baml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignColors.dll
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignColors.pdb
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.CopyComplete
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\onGoing.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\usedToGo.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\onGoing.baml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\usedToGo.baml
 D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\WeSplit.exe.config
 D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\WeSplit.exe
 D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\WeSplit.pdb
@@ -54,3 +26,33 @@ D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.csproj.CoreCompi
 D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.csproj.CopyComplete
 D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.exe
 D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.pdb
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\CreateJourneyScreen.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\MainWindow.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\onGoing.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\usedToGo.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\App.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit_MarkupCompile.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit_MarkupCompile.lref
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\WeSplit.exe.config
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\WeSplit.exe
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\WeSplit.pdb
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignColors.dll
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\App.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\CreateJourneyScreen.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\MainWindow.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\onGoing.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\ResourceXAML\MainResource.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\usedToGo.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.g.resources
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.Properties.Resources.resources
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.GenerateResource.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.CopyComplete
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.exe
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.pdb
