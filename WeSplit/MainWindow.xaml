@@ -9,63 +9,63 @@
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="600" Width="1024"
         ResizeMode="NoResize">
-    <Grid>
+    <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>-->
-        <Grid Grid.Row="1">
-            <Grid.Background>
+
+        <Border Margin="5" Grid.Column="0" CornerRadius="8" BorderBrush="White" BorderThickness="2">
+            <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
                     <GradientStop Color="White"/>
                 </LinearGradientBrush>
-            </Grid.Background>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="150"/>
-            </Grid.RowDefinitions>
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="20" Color="#FFD8D8D8" RenderingBias="Quality" ShadowDepth="1" />
-            </Grid.Effect>
+            </Border.Background>
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="#FFD8D8D8" RenderingBias="Quality" ShadowDepth="1" />
+                </Grid.Effect>
 
-            <Grid Background="#FFA46FE4">
-                <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFBC96EA" FontSize="16"/>
+                <Grid Grid.Row="0" Background="#FFA46FE4">
+                    <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFBC96EA" FontSize="16"/>
+                </Grid>
+
+                <StackPanel Grid.Row="1">
+                    <Button Name="onGoing_Button" Margin="10" Background="DimGray" BorderBrush="Transparent" Click="onGoing_Button_Click">
+                        <Grid Width="145">
+                            <materialDesign:PackIcon Kind="SeatReclineExtra" VerticalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Đang đi"/>
+                        </Grid>
+                    </Button>
+
+                    <Button Name="usedToGo_Button" Margin="10" Background="DimGray" BorderBrush="Transparent" Click="usedToGo_Button_Click">
+                        <Grid Width="145">
+                            <materialDesign:PackIcon Kind="Seal" VerticalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Đã từng đi"/>
+                        </Grid>
+                    </Button>
+                </StackPanel>
+                <Grid Grid.Row="2">
+                    <Button Command="{Binding CreateJourneyCommand}" Height="45" Margin="10,52" Background="DimGray" BorderBrush="Transparent">
+                        <Grid Width="145">
+                            <materialDesign:PackIcon Kind="UploadOutline" VerticalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Thêm chuyến đi" TextWrapping="Wrap" Margin="22,0,17,0" Width="106"/>
+                        </Grid>
+                    </Button>
+                </Grid>
             </Grid>
+        </Border>
 
-            <StackPanel Grid.Row="1">
-                <Button Name="onGoing_Button" Margin="10" Background="DimGray" BorderBrush="Transparent" Click="onGoing_Button_Click">
-                    <Grid Width="145">
-                        <materialDesign:PackIcon Kind="SeatReclineExtra" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Đang đi"/>
-                    </Grid>
-                </Button>
+        <Border Grid.Column="1" Margin="0 5 5 5" CornerRadius="8" BorderBrush="White" BorderThickness="2" Background="Gray">
+            <Grid Margin="5" x:Name="GridPrinciple">
 
-                <Button Name="usedToGo_Button" Margin="10" Background="DimGray" BorderBrush="Transparent" Click="usedToGo_Button_Click">
-                    <Grid Width="145">
-                        <materialDesign:PackIcon Kind="Seal" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Đã từng đi"/>
-                    </Grid>
-                </Button>
-            </StackPanel>
-            <Grid Grid.Row="3">
-                <Button Command="{Binding CreateJourneyCommand}" Height="45" Margin="20" Background="DimGray" BorderBrush="Transparent">
-                    <Grid Width="145">
-                        <materialDesign:PackIcon Kind="UploadOutline" VerticalAlignment="Center"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Thêm chuyến đi"/>
-                    </Grid>
-                </Button>
             </Grid>
-            
-        </Grid>
-
-        <Grid Grid.Column="2" x:Name="GridPrinciple">
-            
-        </Grid>
+        </Border>
     </Grid>
 </Window>
