@@ -77,6 +77,7 @@
     <Compile Include="CreateJourneyScreen.xaml.cs">
       <DependentUpon>CreateJourneyScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\EXPENSE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
