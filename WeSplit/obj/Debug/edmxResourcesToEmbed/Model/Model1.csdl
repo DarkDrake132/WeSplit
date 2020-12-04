@@ -2,26 +2,26 @@
 <Schema Namespace="WESPLITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="EXPENSE">
     <Key>
+      <PropertyRef Name="idJourney" />
+      <PropertyRef Name="idMember" />
       <PropertyRef Name="id" />
-      <PropertyRef Name="stt" />
-      <PropertyRef Name="spending_number" />
     </Key>
+    <Property Name="idJourney" Type="Int32" Nullable="false" />
+    <Property Name="idMember" Type="Int32" Nullable="false" />
     <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="stt" Type="Int32" Nullable="false" />
-    <Property Name="spending_number" Type="Int32" Nullable="false" />
-    <Property Name="object_pay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="objectPay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="cost" Type="Int32" />
-    <NavigationProperty Name="MEMBER" Relationship="Self.FK__EXPENSE__3E52440B" FromRole="EXPENSE" ToRole="MEMBER" />
+    <NavigationProperty Name="MEMBER" Relationship="Self.FK__EXPENSE__2C3393D0" FromRole="EXPENSE" ToRole="MEMBER" />
   </EntityType>
   <EntityType Name="IMAGE_DESTINATION">
     <Key>
+      <PropertyRef Name="idJourney" />
       <PropertyRef Name="id" />
-      <PropertyRef Name="stt" />
     </Key>
+    <Property Name="idJourney" Type="Int32" Nullable="false" />
     <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="stt" Type="Int32" Nullable="false" />
     <Property Name="imageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="JOURNEY" Relationship="Self.FK__IMAGE_DESTIN__id__38996AB5" FromRole="IMAGE_DESTINATION" ToRole="JOURNEY" />
+    <NavigationProperty Name="JOURNEY" Relationship="Self.FK__IMAGE_DES__idJou__267ABA7A" FromRole="IMAGE_DESTINATION" ToRole="JOURNEY" />
   </EntityType>
   <EntityType Name="JOURNEY">
     <Key>
@@ -30,21 +30,21 @@
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="C_location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="onGoingOrUsedToGo" Type="Int32" />
-    <Property Name="imageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="IMAGE_DESTINATION" Relationship="Self.FK__IMAGE_DESTIN__id__38996AB5" FromRole="JOURNEY" ToRole="IMAGE_DESTINATION" />
-    <NavigationProperty Name="MEMBERs" Relationship="Self.FK__MEMBER__id__3B75D760" FromRole="JOURNEY" ToRole="MEMBER" />
+    <Property Name="isFinish" Type="Int32" />
+    <Property Name="thumbnailLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IMAGE_DESTINATION" Relationship="Self.FK__IMAGE_DES__idJou__267ABA7A" FromRole="JOURNEY" ToRole="IMAGE_DESTINATION" />
+    <NavigationProperty Name="MEMBERs" Relationship="Self.FK__MEMBER__idJourne__29572725" FromRole="JOURNEY" ToRole="MEMBER" />
   </EntityType>
   <EntityType Name="MEMBER">
     <Key>
+      <PropertyRef Name="idJourney" />
       <PropertyRef Name="id" />
-      <PropertyRef Name="stt" />
     </Key>
+    <Property Name="idJourney" Type="Int32" Nullable="false" />
     <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="stt" Type="Int32" Nullable="false" />
     <Property Name="C_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="EXPENSEs" Relationship="Self.FK__EXPENSE__3E52440B" FromRole="MEMBER" ToRole="EXPENSE" />
-    <NavigationProperty Name="JOURNEY" Relationship="Self.FK__MEMBER__id__3B75D760" FromRole="MEMBER" ToRole="JOURNEY" />
+    <NavigationProperty Name="EXPENSEs" Relationship="Self.FK__EXPENSE__2C3393D0" FromRole="MEMBER" ToRole="EXPENSE" />
+    <NavigationProperty Name="JOURNEY" Relationship="Self.FK__MEMBER__idJourne__29572725" FromRole="MEMBER" ToRole="JOURNEY" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -56,21 +56,21 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <Association Name="FK__EXPENSE__3E52440B">
+  <Association Name="FK__EXPENSE__2C3393D0">
     <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="1" />
     <End Role="EXPENSE" Type="Self.EXPENSE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MEMBER">
+        <PropertyRef Name="idJourney" />
         <PropertyRef Name="id" />
-        <PropertyRef Name="stt" />
       </Principal>
       <Dependent Role="EXPENSE">
-        <PropertyRef Name="id" />
-        <PropertyRef Name="stt" />
+        <PropertyRef Name="idJourney" />
+        <PropertyRef Name="idMember" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__IMAGE_DESTIN__id__38996AB5">
+  <Association Name="FK__IMAGE_DES__idJou__267ABA7A">
     <End Role="JOURNEY" Type="Self.JOURNEY" Multiplicity="1" />
     <End Role="IMAGE_DESTINATION" Type="Self.IMAGE_DESTINATION" Multiplicity="*" />
     <ReferentialConstraint>
@@ -78,11 +78,11 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="IMAGE_DESTINATION">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idJourney" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MEMBER__id__3B75D760">
+  <Association Name="FK__MEMBER__idJourne__29572725">
     <End Role="JOURNEY" Type="Self.JOURNEY" Multiplicity="1" />
     <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="*" />
     <ReferentialConstraint>
@@ -90,7 +90,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="MEMBER">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idJourney" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -100,15 +100,15 @@
     <EntitySet Name="JOURNEYs" EntityType="Self.JOURNEY" />
     <EntitySet Name="MEMBERs" EntityType="Self.MEMBER" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <AssociationSet Name="FK__EXPENSE__3E52440B" Association="Self.FK__EXPENSE__3E52440B">
+    <AssociationSet Name="FK__EXPENSE__2C3393D0" Association="Self.FK__EXPENSE__2C3393D0">
       <End Role="MEMBER" EntitySet="MEMBERs" />
       <End Role="EXPENSE" EntitySet="EXPENSEs" />
     </AssociationSet>
-    <AssociationSet Name="FK__IMAGE_DESTIN__id__38996AB5" Association="Self.FK__IMAGE_DESTIN__id__38996AB5">
+    <AssociationSet Name="FK__IMAGE_DES__idJou__267ABA7A" Association="Self.FK__IMAGE_DES__idJou__267ABA7A">
       <End Role="JOURNEY" EntitySet="JOURNEYs" />
       <End Role="IMAGE_DESTINATION" EntitySet="IMAGE_DESTINATION" />
     </AssociationSet>
-    <AssociationSet Name="FK__MEMBER__id__3B75D760" Association="Self.FK__MEMBER__id__3B75D760">
+    <AssociationSet Name="FK__MEMBER__idJourne__29572725" Association="Self.FK__MEMBER__idJourne__29572725">
       <End Role="JOURNEY" EntitySet="JOURNEYs" />
       <End Role="MEMBER" EntitySet="MEMBERs" />
     </AssociationSet>

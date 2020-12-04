@@ -2,23 +2,23 @@
 <Schema Namespace="WESPLITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="EXPENSE">
     <Key>
+      <PropertyRef Name="idJourney" />
+      <PropertyRef Name="idMember" />
       <PropertyRef Name="id" />
-      <PropertyRef Name="stt" />
-      <PropertyRef Name="spending_number" />
     </Key>
+    <Property Name="idJourney" Type="int" Nullable="false" />
+    <Property Name="idMember" Type="int" Nullable="false" />
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="stt" Type="int" Nullable="false" />
-    <Property Name="spending_number" Type="int" Nullable="false" />
-    <Property Name="object_pay" Type="nvarchar(max)" />
+    <Property Name="objectPay" Type="nvarchar(max)" />
     <Property Name="cost" Type="int" />
   </EntityType>
   <EntityType Name="IMAGE_DESTINATION">
     <Key>
+      <PropertyRef Name="idJourney" />
       <PropertyRef Name="id" />
-      <PropertyRef Name="stt" />
     </Key>
+    <Property Name="idJourney" Type="int" Nullable="false" />
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="stt" Type="int" Nullable="false" />
     <Property Name="imageLink" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="JOURNEY">
@@ -28,16 +28,16 @@
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="_location" Type="nvarchar(max)" />
     <Property Name="title" Type="nvarchar(max)" />
-    <Property Name="onGoingOrUsedToGo" Type="int" />
-    <Property Name="imageLink" Type="nvarchar(max)" />
+    <Property Name="isFinish" Type="int" />
+    <Property Name="thumbnailLink" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="MEMBER">
     <Key>
+      <PropertyRef Name="idJourney" />
       <PropertyRef Name="id" />
-      <PropertyRef Name="stt" />
     </Key>
+    <Property Name="idJourney" Type="int" Nullable="false" />
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="stt" Type="int" Nullable="false" />
     <Property Name="_name" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -50,21 +50,21 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK__EXPENSE__3E52440B">
+  <Association Name="FK__EXPENSE__2C3393D0">
     <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="1" />
     <End Role="EXPENSE" Type="Self.EXPENSE" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MEMBER">
+        <PropertyRef Name="idJourney" />
         <PropertyRef Name="id" />
-        <PropertyRef Name="stt" />
       </Principal>
       <Dependent Role="EXPENSE">
-        <PropertyRef Name="id" />
-        <PropertyRef Name="stt" />
+        <PropertyRef Name="idJourney" />
+        <PropertyRef Name="idMember" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__IMAGE_DESTIN__id__38996AB5">
+  <Association Name="FK__IMAGE_DES__idJou__267ABA7A">
     <End Role="JOURNEY" Type="Self.JOURNEY" Multiplicity="1" />
     <End Role="IMAGE_DESTINATION" Type="Self.IMAGE_DESTINATION" Multiplicity="*" />
     <ReferentialConstraint>
@@ -72,11 +72,11 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="IMAGE_DESTINATION">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idJourney" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__MEMBER__id__3B75D760">
+  <Association Name="FK__MEMBER__idJourne__29572725">
     <End Role="JOURNEY" Type="Self.JOURNEY" Multiplicity="1" />
     <End Role="MEMBER" Type="Self.MEMBER" Multiplicity="*" />
     <ReferentialConstraint>
@@ -84,7 +84,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="MEMBER">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idJourney" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -94,15 +94,15 @@
     <EntitySet Name="JOURNEY" EntityType="Self.JOURNEY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MEMBER" EntityType="Self.MEMBER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__EXPENSE__3E52440B" Association="Self.FK__EXPENSE__3E52440B">
+    <AssociationSet Name="FK__EXPENSE__2C3393D0" Association="Self.FK__EXPENSE__2C3393D0">
       <End Role="MEMBER" EntitySet="MEMBER" />
       <End Role="EXPENSE" EntitySet="EXPENSE" />
     </AssociationSet>
-    <AssociationSet Name="FK__IMAGE_DESTIN__id__38996AB5" Association="Self.FK__IMAGE_DESTIN__id__38996AB5">
+    <AssociationSet Name="FK__IMAGE_DES__idJou__267ABA7A" Association="Self.FK__IMAGE_DES__idJou__267ABA7A">
       <End Role="JOURNEY" EntitySet="JOURNEY" />
       <End Role="IMAGE_DESTINATION" EntitySet="IMAGE_DESTINATION" />
     </AssociationSet>
-    <AssociationSet Name="FK__MEMBER__id__3B75D760" Association="Self.FK__MEMBER__id__3B75D760">
+    <AssociationSet Name="FK__MEMBER__idJourne__29572725" Association="Self.FK__MEMBER__idJourne__29572725">
       <End Role="JOURNEY" EntitySet="JOURNEY" />
       <End Role="MEMBER" EntitySet="MEMBER" />
     </AssociationSet>

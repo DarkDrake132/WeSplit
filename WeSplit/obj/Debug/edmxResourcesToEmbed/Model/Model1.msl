@@ -4,10 +4,10 @@
     <EntitySetMapping Name="EXPENSEs">
       <EntityTypeMapping TypeName="WESPLITModel.EXPENSE">
         <MappingFragment StoreEntitySet="EXPENSE">
+          <ScalarProperty Name="idJourney" ColumnName="idJourney" />
+          <ScalarProperty Name="idMember" ColumnName="idMember" />
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="stt" ColumnName="stt" />
-          <ScalarProperty Name="spending_number" ColumnName="spending_number" />
-          <ScalarProperty Name="object_pay" ColumnName="object_pay" />
+          <ScalarProperty Name="objectPay" ColumnName="objectPay" />
           <ScalarProperty Name="cost" ColumnName="cost" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -15,8 +15,8 @@
     <EntitySetMapping Name="IMAGE_DESTINATION">
       <EntityTypeMapping TypeName="WESPLITModel.IMAGE_DESTINATION">
         <MappingFragment StoreEntitySet="IMAGE_DESTINATION">
+          <ScalarProperty Name="idJourney" ColumnName="idJourney" />
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="stt" ColumnName="stt" />
           <ScalarProperty Name="imageLink" ColumnName="imageLink" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -27,16 +27,16 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="C_location" ColumnName="_location" />
           <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="onGoingOrUsedToGo" ColumnName="onGoingOrUsedToGo" />
-          <ScalarProperty Name="imageLink" ColumnName="imageLink" />
+          <ScalarProperty Name="isFinish" ColumnName="isFinish" />
+          <ScalarProperty Name="thumbnailLink" ColumnName="thumbnailLink" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MEMBERs">
       <EntityTypeMapping TypeName="WESPLITModel.MEMBER">
         <MappingFragment StoreEntitySet="MEMBER">
+          <ScalarProperty Name="idJourney" ColumnName="idJourney" />
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="stt" ColumnName="stt" />
           <ScalarProperty Name="C_name" ColumnName="_name" />
         </MappingFragment>
       </EntityTypeMapping>

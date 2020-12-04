@@ -20,8 +20,8 @@ namespace WeSplit.Model
             this.EXPENSEs = new HashSet<EXPENSE>();
         }
     
+        public int idJourney { get; set; }
         public int id { get; set; }
-        public int stt { get; set; }
         public string C_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
