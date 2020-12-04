@@ -3,4 +3,6 @@
                     xmlns:viewmodel="clr-namespace:WeSplit.ViewModel"
                     xmlns:local="clr-namespace:WeSplit.ResourceXAML">
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
+    <viewmodel:OnGoingViewModel x:Key="OnGoingVM"></viewmodel:OnGoingViewModel>
+    <viewmodel:UsedToGoViewModel x:Key="UsedToGoVM"></viewmodel:UsedToGoViewModel>
 </ResourceDictionary>

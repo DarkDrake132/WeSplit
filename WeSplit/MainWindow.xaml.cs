@@ -26,6 +26,7 @@ namespace WeSplit
             InitializeComponent();
             GridPrinciple.Children.Clear();
             GridPrinciple.Children.Add(new onGoing());
+            onGoing_Button.Background = Brushes.Black;
         }
 
         private void onGoing_Button_Click(object sender, RoutedEventArgs e)

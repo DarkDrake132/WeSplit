@@ -116,6 +116,8 @@
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\OnGoingViewModel.cs" />
+    <Compile Include="ViewModel\UsedToGoViewModel.cs" />
     <Page Include="CreateJourneyScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
