@@ -77,6 +77,9 @@
     <Compile Include="CreateJourneyScreen.xaml.cs">
       <DependentUpon>CreateJourneyScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DetailScreen.xaml.cs">
+      <DependentUpon>DetailScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\EXPENSE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -117,6 +120,10 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="CreateJourneyScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DetailScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
