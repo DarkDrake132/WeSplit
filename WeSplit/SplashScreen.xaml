@@ -1,0 +1,21 @@
+﻿<Window x:Class="WeSplit.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeSplit"
+        mc:Ignorable="d"
+        DataContext="{StaticResource SplashScreenVM}"
+        Title="SplashScreen" Height="450" Width="400" Loaded="Window_Load"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Grid Height="300" Width="Auto" MaxWidth="500">
+            <Image Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding ShowImage}"/>
+        </Grid>
+        <StackPanel>
+            <CheckBox Content="Never show the dialog again!" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" FontSize="15" Click="turnOffButton_Click"/>
+            <Button Content="Close" Click="Button_Click"
+                    Width="70" Margin="0 10 0 10" />
+        </StackPanel>
+    </StackPanel>
+</Window>
