@@ -65,3 +65,6 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit.pdb
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\DetailScreen.g.cs
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\DetailScreen.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\SplashScreen.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\SplashScreen.baml
