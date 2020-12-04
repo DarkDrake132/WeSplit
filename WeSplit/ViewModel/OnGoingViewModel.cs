@@ -5,11 +5,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace WeSplit.ViewModel
 {
     public class OnGoingViewModel : BaseViewModel
     {
+        private ObservableCollection<Journey> OldData;
         private ObservableCollection<Journey> _list;
 
         public ObservableCollection<Journey> List
@@ -17,6 +19,24 @@ namespace WeSplit.ViewModel
             get => _list;
             set { _list = value; OnPropertyChanged(); }
         }
+
+        private string _SearchTextByLocation;
+
+        public string SearchTextByLocation
+        {
+            get { return _SearchTextByLocation; }
+            set { _SearchTextByLocation = value; OnPropertyChanged(); }
+        }
+
+        private string _SearchTextMemberName;
+
+        public string SearchTextMemberName
+        {
+            get { return _SearchTextMemberName; }
+            set { _SearchTextMemberName = value; OnPropertyChanged(); }
+        }
+
+        public ICommand SearchCommand { get; set; }
 
         public class Journey
         {
@@ -27,7 +47,33 @@ namespace WeSplit.ViewModel
 
         public OnGoingViewModel()
         {
-            List = LoadData();
+            OldData = new ObservableCollection<Journey>();
+            OldData = LoadData();
+            List = new ObservableCollection<Journey>();
+            SearchTextByLocation = "";
+            SearchTextMemberName = "";
+            foreach(var journey in OldData)
+            {
+                List.Add(journey);
+            }
+            List = OldData;
+            SearchCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                List.Clear();
+                OldData.Clear();
+                OldData = LoadData();
+                foreach(var journey in OldData)
+                {
+                    if(journey.Title.Contains(SearchTextMemberName) && journey.Location.Contains(SearchTextByLocation))
+                    {
+                        List.Add(journey);
+                    }
+                }
+                OnPropertyChanged("List");
+            });
         }
 
         private ObservableCollection<Journey> LoadData()
@@ -35,32 +81,13 @@ namespace WeSplit.ViewModel
             var ret = new ObservableCollection<Journey>()
             {
                 new Journey() { Title="Chu Tùng Nhân", Image="/Images/image1.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image2.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image3.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image4.jpg", Location="New York" },
+                new Journey() { Title="Chu Tùng HIEUTHUHAI", Image="/Images/image2.jpg", Location="WC" },
+                new Journey() { Title="Chu Tùng HIEUTHUBA", Image="/Images/image3.jpg", Location="Alabama" },
+                new Journey() { Title="Chu Tùng Hà", Image="/Images/image4.jpg", Location="Valley" },
                 new Journey() { Title="Chu Tùng Nhân", Image="/Images/image5.jpg", Location="New York" },
                 new Journey() { Title="Chu Tùng Nhân", Image="/Images/image6.jpg", Location="New York" },
             };
             return ret;
         }
-
-        //class JourneyDAO
-        //{
-        //    public static BindingList<Journey> GetAll()
-        //    {
-        //        var result = new BindingList<Journey>()
-        //        {
-        //            new Journey() { Title="Chu Tùng Nhân", Image="/Images/image1.jpg", Location="New York" },
-        //            new Journey() { Title="Chu Tùng Nhân", Image="/Images/image2.jpg", Location="New York" },
-        //            new Journey() { Title="Chu Tùng Nhân", Image="/Images/image3.jpg", Location="New York" },
-        //            new Journey() { Title="Chu Tùng Nhân", Image="/Images/image4.jpg", Location="New York" },
-        //            new Journey() { Title="Chu Tùng Nhân", Image="/Images/image5.jpg", Location="New York" },
-        //            new Journey() { Title="Chu Tùng Nhân", Image="/Images/image6.jpg", Location="New York" },
-        //        };
-
-        //        return result;
-        //    }
-        //}
-        //BindingList<Journey> _list = new BindingList<Journey>();
     }
 }

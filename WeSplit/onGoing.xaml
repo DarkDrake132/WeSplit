@@ -20,19 +20,19 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <TextBox FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên địa danh" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White"/>
+                <TextBox Text="{Binding SearchTextByLocation, Mode=TwoWay}" FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên địa danh" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White"/>
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <TextBox FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White" />
+                <TextBox Text="{Binding SearchTextMemberName, Mode=TwoWay}" FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White" />
             </StackPanel>
             <Canvas Grid.Column="2">
-                <Button Background="#FF989BB0" DockPanel.Dock="Right" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionLightButton}" ToolTip="Tìm kiếm" Grid.Column="2" Canvas.Left="21" Canvas.Top="17" BorderBrush="#FF3B3842">
+                <Button Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}" Background="#FF989BB0" DockPanel.Dock="Right" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionLightButton}" ToolTip="Tìm kiếm" Grid.Column="2" Canvas.Left="21" Canvas.Top="17" BorderBrush="#FF3B3842">
                     <materialDesign:PackIcon Kind="FileFind" Height="24" Width="24" />
                 </Button>
             </Canvas>
         </Grid>
         
-        <ListView Grid.Row="1" Name="listJourney" ItemsSource="{Binding List}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1" Name="listJourney" ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#FF1D1313" BorderThickness="1" CornerRadius="15" Background="Gray">
