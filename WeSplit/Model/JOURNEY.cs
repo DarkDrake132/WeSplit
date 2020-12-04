@@ -24,8 +24,8 @@ namespace WeSplit.Model
         public int id { get; set; }
         public string C_location { get; set; }
         public string title { get; set; }
-        public Nullable<int> onGoingOrUsedToGo { get; set; }
-        public string imageLink { get; set; }
+        public Nullable<int> isFinish { get; set; }
+        public string thumbnailLink { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMAGE_DESTINATION> IMAGE_DESTINATION { get; set; }

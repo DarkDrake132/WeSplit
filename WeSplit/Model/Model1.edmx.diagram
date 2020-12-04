@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f12b29e1c1aa42e599461b9c4ec804da" Name="Diagram1">
+      <Diagram DiagramId="8f8865e6b6d54b7a989356ecfb0ee0bc" Name="Diagram1">
         <EntityTypeShape EntityType="WESPLITModel.EXPENSE" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="WESPLITModel.IMAGE_DESTINATION" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="WESPLITModel.JOURNEY" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WESPLITModel.MEMBER" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WESPLITModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="WESPLITModel.FK__EXPENSE__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="WESPLITModel.FK__IMAGE_DESTIN__id__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="WESPLITModel.FK__MEMBER__id__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="WESPLITModel.FK__EXPENSE__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="WESPLITModel.FK__IMAGE_DES__idJou__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="WESPLITModel.FK__MEMBER__idJourne__29572725" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

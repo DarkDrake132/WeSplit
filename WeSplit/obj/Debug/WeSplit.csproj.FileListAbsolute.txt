@@ -1,31 +1,3 @@
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\WeSplit.exe.config
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\WeSplit.exe
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\WeSplit.pdb
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\MaterialDesignColors.dll
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\MaterialDesignColors.pdb
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\MainWindow.g.cs
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\onGoing.g.cs
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\usedToGo.g.cs
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\App.g.cs
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit_MarkupCompile.cache
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit_MarkupCompile.lref
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\App.baml
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\MainWindow.baml
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\onGoing.baml
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\ResourceXAML\MainResource.baml
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\usedToGo.baml
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.g.resources
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.Properties.Resources.resources
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.csproj.GenerateResource.cache
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.csproj.CoreCompileInputs.cache
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.csproj.CopyComplete
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.exe
-D:\Lập Trình Windowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit.pdb
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\CreateJourneyScreen.g.cs
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\MainWindow.g.cs
@@ -56,22 +28,6 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_1812017
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.csproj.CopyComplete
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.exe
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\18120042_18120156_18120175\WeSplit\obj\Debug\WeSplit.pdb
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\bin\Debug\EntityFramework.dll
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\bin\Debug\EntityFramework.SqlServer.dll
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\bin\Debug\EntityFramework.xml
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\bin\Debug\EntityFramework.SqlServer.xml
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\obj\Debug\CreateJourneyScreen.g.cs
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\obj\Debug\WeSplit_Content.g.cs
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\obj\Debug\CreateJourneyScreen.baml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\CreateJourneyScreen.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\MainWindow.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\onGoing.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\usedToGo.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\App.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit_Content.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit_MarkupCompile.cache
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit_MarkupCompile.lref
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\WeSplit.exe.config
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\WeSplit.exe
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\WeSplit.pdb
@@ -84,6 +40,16 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\MaterialDesignColors.pdb
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\CreateJourneyScreen.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\MainWindow.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\onGoing.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\usedToGo.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\App.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit_Content.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit_MarkupCompile.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit_MarkupCompile.lref
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\App.baml
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\CreateJourneyScreen.baml
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\MainWindow.baml

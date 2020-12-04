@@ -14,10 +14,10 @@ namespace WeSplit.Model
     
     public partial class EXPENSE
     {
+        public int idJourney { get; set; }
+        public int idMember { get; set; }
         public int id { get; set; }
-        public int stt { get; set; }
-        public int spending_number { get; set; }
-        public string object_pay { get; set; }
+        public string objectPay { get; set; }
         public Nullable<int> cost { get; set; }
     
         public virtual MEMBER MEMBER { get; set; }

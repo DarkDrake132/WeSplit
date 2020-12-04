@@ -14,8 +14,8 @@ namespace WeSplit.Model
     
     public partial class IMAGE_DESTINATION
     {
+        public int idJourney { get; set; }
         public int id { get; set; }
-        public int stt { get; set; }
         public string imageLink { get; set; }
     
         public virtual JOURNEY JOURNEY { get; set; }
