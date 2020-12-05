@@ -82,8 +82,6 @@ namespace WeSplit.ViewModel
                 //Code test
                 CreateJourneyScreen cjs = new CreateJourneyScreen();
                 cjs.ShowDialog();
-
-
             });
         }
 

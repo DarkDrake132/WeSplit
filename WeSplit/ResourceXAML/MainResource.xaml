@@ -6,4 +6,6 @@
     <viewmodel:OnGoingViewModel x:Key="OnGoingVM"></viewmodel:OnGoingViewModel>
     <viewmodel:UsedToGoViewModel x:Key="UsedToGoVM"></viewmodel:UsedToGoViewModel>
     <viewmodel:SplashScreenViewModel x:Key="SplashScreenVM"></viewmodel:SplashScreenViewModel>
+    <viewmodel:CreateJourneyViewModel x:Key="CreateJourneyVM"></viewmodel:CreateJourneyViewModel>
+    <viewmodel:DetailViewModel x:Key="DetailVM"></viewmodel:DetailViewModel>
 </ResourceDictionary>

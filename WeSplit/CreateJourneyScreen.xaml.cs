@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WeSplit.ViewModel;
 
 namespace WeSplit
 {
@@ -19,9 +20,11 @@ namespace WeSplit
     /// </summary>
     public partial class CreateJourneyScreen : Window
     {
+        public CreateJourneyViewModel VM { get; set; }
         public CreateJourneyScreen()
         {
             InitializeComponent();
+            DataContext = VM = new CreateJourneyViewModel();
         }
     }
 }

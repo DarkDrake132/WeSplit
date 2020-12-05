@@ -123,6 +123,8 @@
       <DependentUpon>usedToGo.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CreateJourneyViewModel.cs" />
+    <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OnGoingViewModel.cs" />
     <Compile Include="ViewModel\SplashScreenViewModel.cs" />

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
+        DataContext="{StaticResource DetailVM}"
         Title="DetailScreen" Height="600" Width="1024" ResizeMode="NoResize">
     <Grid>
 

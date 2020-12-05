@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WeSplit.ViewModel;
 
 namespace WeSplit
 {
@@ -19,9 +20,11 @@ namespace WeSplit
     /// </summary>
     public partial class DetailScreen : Window
     {
+        public DetailViewModel VM { get; set; }
         public DetailScreen()
         {
             InitializeComponent();
+            DataContext = VM = new DetailViewModel();
         }
     }
 }
