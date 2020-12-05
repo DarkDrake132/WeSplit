@@ -37,6 +37,7 @@ namespace WeSplit.ViewModel
         }
 
         public ICommand SearchCommand { get; set; }
+        public ICommand DetailCommand { get; set; }
 
         public class Journey
         {
@@ -57,6 +58,7 @@ namespace WeSplit.ViewModel
                 List.Add(journey);
             }
             List = OldData;
+
             SearchCommand = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -73,6 +75,15 @@ namespace WeSplit.ViewModel
                     }
                 }
                 OnPropertyChanged("List");
+            });
+
+            DetailCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                //Code test
+                CreateJourneyScreen cjs = new CreateJourneyScreen();
+                cjs.ShowDialog();
+
+
             });
         }
 

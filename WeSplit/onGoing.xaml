@@ -32,7 +32,7 @@
             </Canvas>
         </Grid>
         
-        <ListView Grid.Row="1" Name="listJourney" ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListView Grid.Row="1" x:Name="listJourney" ItemsSource="{Binding List, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#FF1D1313" BorderThickness="1" CornerRadius="15" Background="Gray">
@@ -43,7 +43,7 @@
                                 </Border.Background>
                             </Border>
                             <TextBlock FontFamily="MV Boli" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5" Text="{Binding Title}" FontSize="14" TextWrapping="Wrap"/>
-                            <Button Margin="0 0 45 0"  Background="Transparent" BorderBrush="Transparent">
+                            <Button Margin="0 0 45 0"  Background="Transparent" BorderBrush="Transparent" Command="{Binding ElementName=listJourney, Path=DataContext.DetailCommand, Mode=OneWay}">
                                 <TextBlock Margin="-15 0 0 0" TextAlignment="Left" Text="Xem thêm>>" FontSize="12"/>
                             </Button>
                         </StackPanel>
