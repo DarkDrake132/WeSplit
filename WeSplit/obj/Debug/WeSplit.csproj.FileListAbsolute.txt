@@ -40,7 +40,6 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\MaterialDesignColors.pdb
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\CreateJourneyScreen.g.cs
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\MainWindow.g.cs
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\onGoing.g.cs
@@ -68,3 +67,4 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\SplashScreen.g.cs
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\SplashScreen.baml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache

@@ -7,27 +7,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WeSplit.Model;
 
 namespace WeSplit.ViewModel
 {
     public class OnGoingViewModel : BaseViewModel
     {
-        private ObservableCollection<Journey> OldData;
-        private ObservableCollection<Journey> _list;
+        private ObservableCollection<JOURNEY> OldData;
+        private ObservableCollection<JOURNEY> _list;
 
-        public ObservableCollection<Journey> List
+        public ObservableCollection<JOURNEY> List
         {
             get => _list;
             set { _list = value; OnPropertyChanged(); }
         }
 
-        private Journey _SelectedItem;
+        //private Journey _SelectedItem;
             
-        public Journey SelectedItem
-        {
-            get { return _SelectedItem; }
-            set { _SelectedItem = value; }
-        }
+        //public Journey SelectedItem
+        //{
+        //    get { return _SelectedItem; }
+        //    set { _SelectedItem = value; }
+        //}
 
 
         private string _SearchTextByLocation;
@@ -49,18 +50,11 @@ namespace WeSplit.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand DetailCommand { get; set; }
 
-        public class Journey
-        {
-            public string Title { get; set; }
-            public string Image { get; set; }
-            public string Location { get; set; }
-        }
-
         public OnGoingViewModel()
         {
-            OldData = new ObservableCollection<Journey>();
+            OldData = new ObservableCollection<JOURNEY>();
             OldData = LoadData();
-            List = new ObservableCollection<Journey>();
+            List = new ObservableCollection<JOURNEY>();
             SearchTextByLocation = "";
             SearchTextMemberName = "";
             foreach(var journey in OldData)
@@ -79,10 +73,11 @@ namespace WeSplit.ViewModel
                 OldData = LoadData();
                 foreach(var journey in OldData)
                 {
-                    if(journey.Title.Contains(SearchTextMemberName) && journey.Location.Contains(SearchTextByLocation))
-                    {
-                        List.Add(journey);
-                    }
+                    //if(journey.Title.Contains(SearchTextMemberName) && journey.Location.Contains(SearchTextByLocation))
+                    //{
+                    //    List.Add(journey);
+                    //}
+                    List.Add(journey);
                 }
                 OnPropertyChanged("List");
             });
@@ -97,17 +92,17 @@ namespace WeSplit.ViewModel
             });
         }
 
-        private ObservableCollection<Journey> LoadData()
+        private ObservableCollection<JOURNEY> LoadData()
         {
-            var ret = new ObservableCollection<Journey>()
+            var data = new ObservableCollection<JOURNEY>(DataProvider.Ins.DB.JOURNEYs);
+            var ret = new ObservableCollection<JOURNEY>();
+            foreach(var journey in data)
             {
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image1.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng HIEUTHUHAI", Image="/Images/image2.jpg", Location="WC" },
-                new Journey() { Title="Chu Tùng HIEUTHUBA", Image="/Images/image3.jpg", Location="Alabama" },
-                new Journey() { Title="Chu Tùng Hà", Image="/Images/image4.jpg", Location="Valley" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image5.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image6.jpg", Location="New York" },
-            };
+                if(journey.isFinish == 1)
+                {
+                    ret.Add(journey);
+                }
+            }
             return ret;
         }
     }

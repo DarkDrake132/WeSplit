@@ -201,6 +201,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\du-lich-phu-quoc-3-ngay-2-dem.jpg" />
+    <Resource Include="Images\780_crop_phu-quoc-he-2020.jpg" />
+    <Resource Include="Images\shutterstock-1355875478-3291-1-5462-7597-1590571669.jpg" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
