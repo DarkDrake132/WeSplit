@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\obj\Debug\
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\
 WeSplit
 none
 false
 DEBUG;TRACE
-D:\Lập Trình WIndowns\Code\WeSplit\WeSplit\App.xaml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\App.xaml
 7-1774859376
 2-1556844510
 271250276605
-241258745772
+24-850294504
 CreateJourneyScreen.xaml;DetailScreen.xaml;MainWindow.xaml;onGoing.xaml;ResourceXAML\MainResource.xaml;SplashScreen.xaml;usedToGo.xaml;
 
-False
+True
 

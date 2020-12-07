@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace WeSplit.ViewModel
@@ -19,6 +20,15 @@ namespace WeSplit.ViewModel
             get => _list;
             set { _list = value; OnPropertyChanged(); }
         }
+
+        private Journey _SelectedItem;
+            
+        public Journey SelectedItem
+        {
+            get { return _SelectedItem; }
+            set { _SelectedItem = value; }
+        }
+
 
         private string _SearchTextByLocation;
 
@@ -77,11 +87,15 @@ namespace WeSplit.ViewModel
                 OnPropertyChanged("List");
             });
 
-            DetailCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            DetailCommand = new RelayCommand<object>((p) => 
+            { 
+                return true; 
+            }, (p) =>
             {
+                MessageBox.Show(SelectedItem.Title);
                 //Code test
-                CreateJourneyScreen cjs = new CreateJourneyScreen();
-                cjs.ShowDialog();
+                //CreateJourneyScreen cjs = new CreateJourneyScreen();
+                //cjs.ShowDialog();
             });
         }
 
