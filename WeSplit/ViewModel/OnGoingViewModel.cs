@@ -92,10 +92,8 @@ namespace WeSplit.ViewModel
                 return true; 
             }, (p) =>
             {
-                MessageBox.Show(SelectedItem.Title);
-                //Code test
-                //CreateJourneyScreen cjs = new CreateJourneyScreen();
-                //cjs.ShowDialog();
+                // Lấy dc location chuyến đi bấm vào
+                MessageBox.Show(p.ToString());
             });
         }
 
