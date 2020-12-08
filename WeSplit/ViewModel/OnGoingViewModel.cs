@@ -73,11 +73,10 @@ namespace WeSplit.ViewModel
                 OldData = LoadData();
                 foreach(var journey in OldData)
                 {
-                    //if(journey.Title.Contains(SearchTextMemberName) && journey.Location.Contains(SearchTextByLocation))
-                    //{
-                    //    List.Add(journey);
-                    //}
-                    List.Add(journey);
+                    if (journey.C_location.Contains(SearchTextByLocation) && ContainsMember(journey, SearchTextMemberName))
+                    {
+                        List.Add(journey);
+                    }
                 }
                 OnPropertyChanged("List");
             });
@@ -92,18 +91,27 @@ namespace WeSplit.ViewModel
             });
         }
 
+        private bool ContainsMember(JOURNEY journey, string searchTextMemberName)
+        {
+            var query = from p in DataProvider.Ins.DB.JOURNEYs
+                        join c in DataProvider.Ins.DB.MEMBERs on p.id equals c.idJourney
+                        where p.id == journey.id && c.C_name.Contains(searchTextMemberName)
+                        select new
+                        {
+                            id = p.id,
+                            name = c.C_name
+                        };
+            if(query.Count() > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private ObservableCollection<JOURNEY> LoadData()
         {
-            var data = new ObservableCollection<JOURNEY>(DataProvider.Ins.DB.JOURNEYs);
-            var ret = new ObservableCollection<JOURNEY>();
-            foreach(var journey in data)
-            {
-                if(journey.isFinish == 1)
-                {
-                    ret.Add(journey);
-                }
-            }
-            return ret;
+            var data = new ObservableCollection<JOURNEY>(DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 0));
+            return data;
         }
     }
 }

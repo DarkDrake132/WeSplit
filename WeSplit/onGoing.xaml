@@ -49,7 +49,7 @@
                                     <ImageBrush ImageSource="{Binding thumbnailLink}" Stretch="Fill"></ImageBrush>
                                 </Border.Background>
                             </Border>
-                            <TextBlock FontFamily="MV Boli" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5" Text="{Binding title}" FontSize="14" TextWrapping="Wrap"/>
+                            <TextBlock FontFamily="University" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5" Text="{Binding C_location}" FontSize="20" TextWrapping="Wrap"/>
                             <Button Margin="0 0 45 0"  Background="Transparent" BorderBrush="Transparent" Command="{Binding ElementName=listJourney, Path=DataContext.DetailCommand, Mode=OneWay}" CommandParameter="{Binding id}">
                                 <TextBlock Margin="-15 0 0 0" TextAlignment="Left" Text="Xem thêm>>" FontSize="12"/>
                             </Button>
