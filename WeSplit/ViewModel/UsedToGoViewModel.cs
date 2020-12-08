@@ -4,20 +4,31 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using WeSplit.Model;
 
 namespace WeSplit.ViewModel
 {
     public class UsedToGoViewModel : BaseViewModel
     {
-        private ObservableCollection<Journey> OldData;
-        private ObservableCollection<Journey> _list;
+        private ObservableCollection<JOURNEY> OldData;
+        private ObservableCollection<JOURNEY> _list;
 
-        public ObservableCollection<Journey> List
+        public ObservableCollection<JOURNEY> List
         {
             get => _list;
             set { _list = value; OnPropertyChanged(); }
         }
+
+        //private Journey _SelectedItem;
+
+        //public Journey SelectedItem
+        //{
+        //    get { return _SelectedItem; }
+        //    set { _SelectedItem = value; }
+        //}
+
 
         private string _SearchTextByLocation;
 
@@ -38,18 +49,11 @@ namespace WeSplit.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand DetailCommand { get; set; }
 
-        public class Journey
-        {
-            public string Title { get; set; }
-            public string Image { get; set; }
-            public string Location { get; set; }
-        }
-
         public UsedToGoViewModel()
         {
-            OldData = new ObservableCollection<Journey>();
+            OldData = new ObservableCollection<JOURNEY>();
             OldData = LoadData();
-            List = new ObservableCollection<Journey>();
+            List = new ObservableCollection<JOURNEY>();
             SearchTextByLocation = "";
             SearchTextMemberName = "";
             foreach (var journey in OldData)
@@ -57,6 +61,7 @@ namespace WeSplit.ViewModel
                 List.Add(journey);
             }
             List = OldData;
+
             SearchCommand = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -67,7 +72,7 @@ namespace WeSplit.ViewModel
                 OldData = LoadData();
                 foreach (var journey in OldData)
                 {
-                    if (journey.Title.Contains(SearchTextMemberName) && journey.Location.Contains(SearchTextByLocation))
+                    if (journey.C_location.Contains(SearchTextByLocation) && ContainsMember(journey, SearchTextMemberName))
                     {
                         List.Add(journey);
                     }
@@ -80,24 +85,32 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-                // Code test
-                CreateJourneyScreen cjs = new CreateJourneyScreen();
-                cjs.ShowDialog();
+                // Lấy dc location chuyến đi bấm vào
+                MessageBox.Show(p.ToString());
             });
         }
 
-        private ObservableCollection<Journey> LoadData()
+        private bool ContainsMember(JOURNEY journey, string searchTextMemberName)
         {
-            var ret = new ObservableCollection<Journey>()
+            var query = from p in DataProvider.Ins.DB.JOURNEYs
+                        join c in DataProvider.Ins.DB.MEMBERs on p.id equals c.idJourney
+                        where p.id == journey.id && c.C_name.Contains(searchTextMemberName)
+                        select new
+                        {
+                            id = p.id,
+                            name = c.C_name
+                        };
+            if (query.Count() > 0)
             {
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image1.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng HIEUTHUHAI", Image="/Images/image2.jpg", Location="WC" },
-                new Journey() { Title="Chu Tùng HIEUTHUBA", Image="/Images/image3.jpg", Location="Alabama" },
-                new Journey() { Title="Chu Tùng Hà", Image="/Images/image4.jpg", Location="Valley" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image5.jpg", Location="New York" },
-                new Journey() { Title="Chu Tùng Nhân", Image="/Images/image6.jpg", Location="New York" },
-            };
-            return ret;
+                return true;
+            }
+            return false;
+        }
+
+        private ObservableCollection<JOURNEY> LoadData()
+        {
+            var data = new ObservableCollection<JOURNEY>(DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 1));
+            return data;
         }
     }
 }

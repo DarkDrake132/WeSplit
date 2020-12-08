@@ -39,11 +39,11 @@
                         <StackPanel Margin="8" Width="150" Height="auto">
                             <Border Width="auto" Height="120" CornerRadius="20">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
+                                    <ImageBrush ImageSource="{Binding thumbnailLink}" Stretch="Fill"></ImageBrush>
                                 </Border.Background>
                             </Border>
-                            <TextBlock FontFamily="MV Boli" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5" Text="{Binding Title}" FontSize="14" TextWrapping="Wrap"/>
-                            <Button Command="{Binding ElementName=listJourney,Path=DataContext.DetailCommand,Mode=OneWay}" Margin="0 0 45 0"  Background="Transparent" BorderBrush="Transparent">
+                            <TextBlock FontFamily="University" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5" Text="{Binding C_location}" FontSize="20" TextWrapping="Wrap"/>
+                            <Button Margin="0 0 45 0"  Background="Transparent" BorderBrush="Transparent" Command="{Binding ElementName=listJourney, Path=DataContext.DetailCommand, Mode=OneWay}" CommandParameter="{Binding id}">
                                 <TextBlock Margin="-15 0 0 0" TextAlignment="Left" Text="Xem thêm>>" FontSize="12"/>
                             </Button>
                         </StackPanel>
