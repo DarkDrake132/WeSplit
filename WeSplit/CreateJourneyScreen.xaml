@@ -3,11 +3,138 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
         DataContext="{StaticResource CreateJourneyVM}"
         Title="CreateJourneyScreen" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="Black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" CornerRadius="8" Background="Gray" BorderThickness="3" BorderBrush="Transparent">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="5" FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="23">THÊM CHUYẾN ĐI MỚI</TextBlock>
+                <StackPanel Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                            <ColumnDefinition Width="160"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Margin="5" Text="{Binding AddLocation}" x:Name="FloatingLocationBox" materialDesign:HintAssist.Hint="Tên địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                        <ComboBox Grid.Column="1" Margin="5" SelectedItem="{Binding AddState}" materialDesign:HintAssist.Hint="Trạng thái" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="42"  >
+                            <ComboBoxItem IsSelected="True">
+                                Đang đi
+                            </ComboBoxItem>
+                            <ComboBoxItem>
+                                Kết thúc
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <TextBox Grid.Column="0" Margin="5" Text="{Binding AddTitle}" x:Name="FloatingTitleBox" materialDesign:HintAssist.Hint="Tên chuyến đi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <Grid Margin="10" Height="250">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="32"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Command="{Binding AddMainImage}" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton">
+                                Đại diện
+                            </Button>
+                            <materialDesign:PackIcon Kind="ImagePlus" Margin="5 10 5 0"/>
+                            <Button Command="{Binding AddActivitiesImage}" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton">
+                                Hoạt động
+                            </Button>
+                        </StackPanel>
+                        <Border Grid.Row="1" BorderBrush="Bisque" Background="WhiteSmoke" Margin="5" CornerRadius="10" Height="200">
+                            <ScrollViewer>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Margin="20 0">
+                                        <ListView x:Name="ImageBox" ItemsSource="{Binding ImageList}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="10" Width="150" Height="auto">
+                                                        <Image Source="{Binding Image}" Stretch="Fill"></Image> 
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                        </ListView>
+                                    </StackPanel>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Grid.Column="1" CornerRadius="8" Background="Gray" BorderThickness="3" BorderBrush="Transparent">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="350"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Margin="5" FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="23">THÊM THÀNH VIÊN MỚI</TextBlock>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding DeleteAll}" Margin="0 0 5 0" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Xóa và thoát" Background="red">
+                            <materialDesign:PackIcon Kind="Delete" />
+                        </Button>
+                        <Button Command="{Binding SaveAll}" Margin="0 0 5 0" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thêm chuyến đi mới">
+                            <materialDesign:PackIcon Kind="ContentSaveAll" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <Border Grid.Row="1" Margin="5" BorderBrush="White" BorderThickness="2" CornerRadius="4">
+                    <ScrollViewer>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Margin="20 0">
+                                <ListView x:Name="MemberBox" ItemsSource="{Binding Foods}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Width="150" Height="auto">
+                                                <StackPanel Background="{Binding Color}">
+                                                    <Border Width="auto" Height="100" CornerRadius="5" Margin="5">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock Margin="5" Text="{Binding DisplayName}" FontSize="14" TextWrapping="Wrap"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ListView>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+                <Button Grid.Row="2" Command="{Binding AddMember}" Width="200" ToolTip="Resource name: MaterialDesignRaisedButton">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="AccountPlus" />
+                        <TextBlock Margin="15 0 0 0">Thêm thành viên</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
