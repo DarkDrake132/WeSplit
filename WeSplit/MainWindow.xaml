@@ -63,7 +63,7 @@
             </Grid>
         </Border>
 
-        <Border Grid.Column="1" Margin="0 5 5 5" CornerRadius="8" BorderBrush="White" BorderThickness="2" Background="Gray">
+        <Border Grid.Column="1" Margin="0 5 5 5" CornerRadius="8" BorderBrush="White" BorderThickness="2" Background="#FF494949">
             <Grid Margin="5" x:Name="GridPrinciple">
 
             </Grid>
