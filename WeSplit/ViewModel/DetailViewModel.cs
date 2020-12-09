@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WeSplit.Model;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace WeSplit.ViewModel
 {

@@ -45,7 +45,7 @@
                                     <ImageBrush ImageSource="{Binding thumbnailLink}" Stretch="Fill"></ImageBrush>
                                 </Border.Background>
                             </Border>
-                            <TextBlock FontFamily="University" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5" Text="{Binding title}" FontSize="19" TextWrapping="Wrap"/>
+                            <TextBlock FontFamily="University" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5 5 5 0" Text="{Binding title}" FontSize="19" TextWrapping="Wrap"/>
                             <Button Margin="0 0 45 0"  Background="Transparent" BorderBrush="Transparent" Command="{Binding ElementName=listJourney, Path=DataContext.DetailCommand, Mode=OneWay}" CommandParameter="{Binding id}">
                                 <TextBlock Margin="-15 0 0 0" FontStyle="Italic" TextAlignment="Left" Text="Xem thêm>>" FontSize="12"/>
                             </Button>
