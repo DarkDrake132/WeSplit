@@ -41,14 +41,14 @@
                     <Button Name="onGoing_Button" Margin="10" Background="DimGray" BorderBrush="Transparent" Click="onGoing_Button_Click">
                         <Grid Width="145">
                             <materialDesign:PackIcon Kind="SeatReclineExtra" VerticalAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Center" Text="Đang đi"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Đang thực hiện"/>
                         </Grid>
                     </Button>
 
                     <Button Name="usedToGo_Button" Margin="10" Background="DimGray" BorderBrush="Transparent" Click="usedToGo_Button_Click">
                         <Grid Width="145">
                             <materialDesign:PackIcon Kind="Seal" VerticalAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Center" Text="Đã từng đi"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Đã hoàn thành"/>
                         </Grid>
                     </Button>
                 </StackPanel>

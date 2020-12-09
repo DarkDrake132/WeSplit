@@ -61,7 +61,7 @@ namespace WeSplit.ViewModel
             {
                 List.Add(journey);
             }
-            List = OldData;
+
 
             SearchCommand = new RelayCommand<object>((p) =>
             {
@@ -86,8 +86,8 @@ namespace WeSplit.ViewModel
                 return true; 
             }, (p) =>
             {
-                // Lấy dc location chuyến đi bấm vào
-                MessageBox.Show(p.ToString());
+                DetailScreen dt = new DetailScreen();
+                dt.ShowDialog();
             });
         }
 

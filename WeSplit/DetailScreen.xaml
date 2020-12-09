@@ -6,8 +6,38 @@
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
         DataContext="{StaticResource DetailVM}"
-        Title="DetailScreen" Height="600" Width="1024" ResizeMode="NoResize">
-    <Grid>
+        Title="DetailScreen" Height="706.5" Width="963" ResizeMode="NoResize">
+    <Grid Background="#FF494949">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">
+                    CHI TIẾT CHUYẾN ĐI
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock TextAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="{Binding ColorStatus}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Text="{Binding Status}">
+                </TextBlock>
+            </Border>
+        </Grid>
 
     </Grid>
 </Window>

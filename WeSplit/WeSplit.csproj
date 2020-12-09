@@ -92,6 +92,7 @@
     <Compile Include="Model\JOURNEY.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\JourneyCollector.cs" />
     <Compile Include="Model\MEMBER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
