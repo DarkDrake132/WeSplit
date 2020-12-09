@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,14 @@ namespace WeSplit.ViewModel
             get { return _curJourney; }
             set { _curJourney = value; OnPropertyChanged(); }
         }
+        private ObservableCollection<IMAGE_DESTINATION> _listImg;
+
+        public ObservableCollection<IMAGE_DESTINATION> ListImg
+        {
+            get { return _listImg; }
+            set { _listImg = value; OnPropertyChanged(); }
+        }
+
         public ICommand UpdateCommand { get; set; }
         public string Status { get; set; }
         public string ColorStatus { get; set; }
@@ -47,6 +56,7 @@ namespace WeSplit.ViewModel
             var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 0).SingleOrDefault();
             curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
             MemberCount = DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id).Count();
+            ListImg = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id));
         }
     }
 }

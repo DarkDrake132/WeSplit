@@ -109,6 +109,35 @@
                 <Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">
+                            Hình ảnh
+                        </TextBlock>
+                    </Grid>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding ListImg, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="8" BorderBrush="Transparent" Width="130" Height="120" Margin="2">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="{Binding imageLink}" Stretch="Fill"></ImageBrush>
+                                    </Border.Background>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ListView>
+                </Grid>
             </Border>
 
         </Grid>
