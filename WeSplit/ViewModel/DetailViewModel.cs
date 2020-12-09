@@ -27,6 +27,7 @@ namespace WeSplit.ViewModel
             get { return _listImg; }
             set { _listImg = value; OnPropertyChanged(); }
         }
+        public Func<ChartPoint, string> PointLabel { get; set; }
 
         public ICommand UpdateCommand { get; set; }
         public string Status { get; set; }
@@ -59,6 +60,7 @@ namespace WeSplit.ViewModel
             curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
             MemberCount = DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id).Count();
             ListImg = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id));
+            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
         }
     }
 }
