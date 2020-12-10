@@ -154,24 +154,93 @@
                 <Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>
-                <lvc:PieChart Series="{Binding PieChart1}" Height="250" LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
-                    <!--<lvc:PieChart.Series>
-                        <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                        <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
-                               LabelPoint="{Binding PointLabel}"/>
-                    </lvc:PieChart.Series>-->
-                </lvc:PieChart>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">
+                            Biểu đồ số tiền đóng góp
+                        </TextBlock>
+                    </Grid>
+
+                    <lvc:PieChart Foreground="White" Grid.Row="1" Series="{Binding PieChart1}" Height="240" LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
+                    </lvc:PieChart>
+                </Grid>
             </Border>
 
             <Border Grid.Column="1" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
                 <Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">
+                            Thống kê chi tiết
+                        </TextBlock>
+                    </Grid>
+
+                    <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                                         Số tiền (VND)">
+                            </TextBlock>
+                            <ListView ItemsSource="{Binding ListPaid,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="330"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+    
+                                            <Grid Grid.Column="0">
+                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Name}" TextWrapping="Wrap">
+                                                </TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap">
+                                                </TextBlock>
+                                             </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Các khoản chi                                        Số tiền (VND)">
+                            </TextBlock>
+                            <ListView ItemsSource="{Binding ListExpe,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="330"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding objectPay}" TextWrapping="Wrap">
+                                                </TextBlock>
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding cost}" TextWrapping="Wrap">
+                                                </TextBlock>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
             </Border>
         </Grid>
     </Grid>
