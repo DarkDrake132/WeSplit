@@ -126,7 +126,7 @@ namespace WeSplit.ViewModel
                         sum += iTem.cost.GetValueOrDefault();
                     }
                 }
-                PieChart1.Add(new PieSeries { Values = new ChartValues<int> { sum }, Title = item.C_name });
+                PieChart1.Add(new PieSeries { Values = new ChartValues<int> { sum }, Title = item.C_name, LabelPoint = PointLabel , DataLabels = true});
                 MemberWithPaid temp = new MemberWithPaid(item.C_name, sum);
                 ListPaid.Add(temp);
             }
