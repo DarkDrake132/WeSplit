@@ -151,8 +151,8 @@
                 <Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>
-                <lvc:PieChart Height="250" LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
-                    <lvc:PieChart.Series>
+                <lvc:PieChart Series="{Binding PieChart1}" Height="250" LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
+                    <!--<lvc:PieChart.Series>
                         <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
                                LabelPoint="{Binding PointLabel}"/>
                         <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
@@ -161,7 +161,7 @@
                                LabelPoint="{Binding PointLabel}"/>
                         <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
                                LabelPoint="{Binding PointLabel}"/>
-                    </lvc:PieChart.Series>
+                    </lvc:PieChart.Series>-->
                 </lvc:PieChart>
             </Border>
 

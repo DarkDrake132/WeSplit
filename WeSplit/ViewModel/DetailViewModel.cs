@@ -27,6 +27,30 @@ namespace WeSplit.ViewModel
             get { return _listImg; }
             set { _listImg = value; OnPropertyChanged(); }
         }
+        private ObservableCollection<MEMBER> _listMem;
+
+        public ObservableCollection<MEMBER> ListMem
+        {
+            get { return _listMem; }
+            set { _listMem = value; }
+        }
+        private ObservableCollection<EXPENSE> _listExpe;
+
+        public ObservableCollection<EXPENSE> ListExpe
+        {
+            get { return _listExpe; }
+            set { _listExpe = value; }
+        }
+
+
+        private SeriesCollection _pieChart1;
+
+        public SeriesCollection PieChart1
+        {
+            get { return _pieChart1; }
+            set { _pieChart1 = value; OnPropertyChanged("PieChart"); }
+        }
+
         public Func<ChartPoint, string> PointLabel { get; set; }
 
         public ICommand UpdateCommand { get; set; }
@@ -61,6 +85,21 @@ namespace WeSplit.ViewModel
             MemberCount = DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id).Count();
             ListImg = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id));
             PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            ListMem = new ObservableCollection<MEMBER>(DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id));
+            ListExpe = new ObservableCollection<EXPENSE>(DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id));
+            PieChart1 = new SeriesCollection();
+            foreach (var item in ListMem)
+            {
+                var sum = 0;
+                foreach (var iTem in ListExpe)
+                {
+                    if (iTem.idMember == item.id)
+                    {
+                        sum += iTem.cost.GetValueOrDefault();
+                    }
+                }
+                PieChart1.Add(new PieSeries { Values = new ChartValues<int> { sum }, DataLabels = true, Title = item.C_name });
+            }
         }
     }
 }
