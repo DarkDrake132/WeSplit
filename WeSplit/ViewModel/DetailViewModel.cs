@@ -50,6 +50,14 @@ namespace WeSplit.ViewModel
             get { return _pieChart1; }
             set { _pieChart1 = value; OnPropertyChanged("PieChart"); }
         }
+        private ObservableCollection<MemberWithPaid> _listPaid;
+
+        public ObservableCollection<MemberWithPaid> ListPaid
+        {
+            get { return _listPaid; }
+            set { _listPaid = value; }
+        }
+
 
         public Func<ChartPoint, string> PointLabel { get; set; }
 
@@ -60,14 +68,8 @@ namespace WeSplit.ViewModel
 
         public DetailViewModel()
         {
+            // Load data test
             TestData();
-            Status = "Trạng thái:\nĐang thực hiện";
-            ColorStatus = "Red";
-            if (curJourney.IsFinish == 1)
-            {
-                Status = "Trạng thái:\nĐã hoàn thành";
-                ColorStatus = "Green";
-            }
 
             UpdateCommand = new RelayCommand<object>((p) =>
             {
@@ -82,12 +84,20 @@ namespace WeSplit.ViewModel
         {
             var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 0).SingleOrDefault();
             curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
+            Status = "Trạng thái:\nĐang thực hiện";
+            ColorStatus = "Red";
+            if (curJourney.IsFinish == 1)
+            {
+                Status = "Trạng thái:\nĐã hoàn thành";
+                ColorStatus = "Green";
+            }
             MemberCount = DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id).Count();
             ListImg = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id));
             PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
             ListMem = new ObservableCollection<MEMBER>(DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id));
             ListExpe = new ObservableCollection<EXPENSE>(DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id));
             PieChart1 = new SeriesCollection();
+            ListPaid = new ObservableCollection<MemberWithPaid>();
             foreach (var item in ListMem)
             {
                 var sum = 0;
@@ -98,7 +108,9 @@ namespace WeSplit.ViewModel
                         sum += iTem.cost.GetValueOrDefault();
                     }
                 }
-                PieChart1.Add(new PieSeries { Values = new ChartValues<int> { sum }, DataLabels = true, Title = item.C_name });
+                PieChart1.Add(new PieSeries { Values = new ChartValues<int> { sum }, Title = item.C_name });
+                MemberWithPaid temp = new MemberWithPaid(item.C_name, sum);
+                ListPaid.Add(temp);
             }
         }
     }
