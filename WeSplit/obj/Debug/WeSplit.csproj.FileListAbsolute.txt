@@ -68,3 +68,11 @@ C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\SplashScreen.g.cs
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\SplashScreen.baml
 C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\WeSplit.csprojAssemblyReference.cache
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\LiveCharts.dll
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\LiveCharts.pdb
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\LiveCharts.xml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\UpdateScreen.g.cs
+C:\Users\Dell\Desktop\Lập trình Windows\Project 2\WeSplit\WeSplit\obj\Debug\UpdateScreen.baml
