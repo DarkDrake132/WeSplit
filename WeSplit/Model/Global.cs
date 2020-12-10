@@ -8,6 +8,6 @@ namespace WeSplit.Model
 {
     public class Global
     {
-        public int IntData { get; set; } = 0;
+        public static int IntData = 0;
     }
 }

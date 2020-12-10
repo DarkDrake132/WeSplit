@@ -162,7 +162,7 @@
 
                     <Grid Grid.Row="0" >
                         <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">
-                            Biểu đồ số tiền đóng góp
+                            Biểu đồ % số tiền đóng góp
                         </TextBlock>
                     </Grid>
 

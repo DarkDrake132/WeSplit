@@ -77,7 +77,7 @@ namespace WeSplit.ViewModel
         public DetailViewModel()
         {
             // Load data test
-            TestData();
+            GetData();
 
             UpdateCommand = new RelayCommand<object>((p) =>
             {
@@ -97,9 +97,10 @@ namespace WeSplit.ViewModel
             });
         }
 
-        private void TestData()
+        private void GetData()
         {
-            var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 0).SingleOrDefault();
+            double totalCost = 0;
+            var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.id == Global.IntData).SingleOrDefault();
             curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
             SelectedImg = curJourney.Thumbnail;
             Status = "Trạng thái:\nĐang thực hiện";
@@ -114,11 +115,15 @@ namespace WeSplit.ViewModel
             PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
             ListMem = new ObservableCollection<MEMBER>(DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id));
             ListExpe = new ObservableCollection<EXPENSE>(DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id));
+            foreach (var item in ListExpe)
+            {
+                totalCost += item.cost.GetValueOrDefault();
+            }
             PieChart1 = new SeriesCollection();
             ListPaid = new ObservableCollection<MemberWithPaid>();
             foreach (var item in ListMem)
             {
-                var sum = 0;
+                int sum = 0;
                 foreach (var iTem in ListExpe)
                 {
                     if (iTem.idMember == item.id)
@@ -126,7 +131,8 @@ namespace WeSplit.ViewModel
                         sum += iTem.cost.GetValueOrDefault();
                     }
                 }
-                PieChart1.Add(new PieSeries { Values = new ChartValues<int> { sum }, Title = item.C_name, LabelPoint = PointLabel , DataLabels = true});
+                double percent = ((double)sum / totalCost) * 100;
+                PieChart1.Add(new PieSeries { Values = new ChartValues<double> { Math.Round(percent,2) }, Title = item.C_name , DataLabels = true});
                 MemberWithPaid temp = new MemberWithPaid(item.C_name, sum);
                 ListPaid.Add(temp);
             }
