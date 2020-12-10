@@ -214,7 +214,7 @@
                                 </ListView.ItemTemplate>
                             </ListView>
 
-                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Các khoản chi                                        Số tiền (VND)">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Các khoản chi                                          Số tiền (VND)">
                             </TextBlock>
                             <ListView ItemsSource="{Binding ListExpe,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.ItemTemplate>
