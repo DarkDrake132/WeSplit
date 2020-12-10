@@ -8,4 +8,5 @@
     <viewmodel:SplashScreenViewModel x:Key="SplashScreenVM"></viewmodel:SplashScreenViewModel>
     <viewmodel:CreateJourneyViewModel x:Key="CreateJourneyVM"></viewmodel:CreateJourneyViewModel>
     <viewmodel:DetailViewModel x:Key="DetailVM"></viewmodel:DetailViewModel>
+    <viewmodel:UpdateScreenViewModel x:Key="UpdateVM"></viewmodel:UpdateScreenViewModel>
 </ResourceDictionary>

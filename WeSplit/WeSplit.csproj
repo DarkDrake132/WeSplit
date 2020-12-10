@@ -129,6 +129,9 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateScreen.xaml.cs">
+      <DependentUpon>UpdateScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="usedToGo.xaml.cs">
       <DependentUpon>usedToGo.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OnGoingViewModel.cs" />
     <Compile Include="ViewModel\SplashScreenViewModel.cs" />
+    <Compile Include="ViewModel\UpdateScreenViewModel.cs" />
     <Compile Include="ViewModel\UsedToGoViewModel.cs" />
     <Page Include="CreateJourneyScreen.xaml">
       <SubType>Designer</SubType>
@@ -168,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
