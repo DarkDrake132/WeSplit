@@ -80,7 +80,7 @@
 
                         <Border Grid.Column="0" CornerRadius="8" Margin="10 5 5 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding curJourney.Thumbnail}"></ImageBrush>
+                                <ImageBrush ImageSource="{Binding SelectedImg,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></ImageBrush>
                             </Border.Background>
                         </Border>
 
@@ -121,13 +121,16 @@
                         </TextBlock>
                     </Grid>
 
-                    <ListView Grid.Row="1" ItemsSource="{Binding ListImg, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView x:Name="imgList" Grid.Row="1" ItemsSource="{Binding ListImg, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border CornerRadius="8" BorderBrush="Transparent" Width="130" Height="120" Margin="2">
-                                    <Border.Background>
-                                        <ImageBrush ImageSource="{Binding imageLink}" Stretch="Fill"></ImageBrush>
-                                    </Border.Background>
+                                    <Image Source="{Binding imageLink,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill">
+                                        <Image.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding ElementName=imgList, Path=DataContext.ChangeImageCommand}" CommandParameter="{Binding imageLink}">
+                                            </MouseBinding>
+                                        </Image.InputBindings>
+                                    </Image>
                                 </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>

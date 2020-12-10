@@ -57,11 +57,19 @@ namespace WeSplit.ViewModel
             get { return _listPaid; }
             set { _listPaid = value; }
         }
+        private string _selectedImg;
+
+        public string SelectedImg
+        {
+            get { return _selectedImg; }
+            set { _selectedImg = value; }
+        }
 
 
         public Func<ChartPoint, string> PointLabel { get; set; }
 
         public ICommand UpdateCommand { get; set; }
+        public ICommand ChangeImageCommand { get; set; }
         public string Status { get; set; }
         public string ColorStatus { get; set; }
         public int MemberCount { get; set; }
@@ -78,12 +86,22 @@ namespace WeSplit.ViewModel
             {
                 // Update code here
             });
+
+            ChangeImageCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                SelectedImg = p.ToString();
+                OnPropertyChanged("SelectedImg");
+            });
         }
 
         private void TestData()
         {
             var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 0).SingleOrDefault();
             curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
+            SelectedImg = curJourney.Thumbnail;
             Status = "Trạng thái:\nĐang thực hiện";
             ColorStatus = "Red";
             if (curJourney.IsFinish == 1)
