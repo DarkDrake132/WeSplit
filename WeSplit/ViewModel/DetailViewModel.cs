@@ -84,7 +84,8 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-                // Update code here
+                UpdateScreen up = new UpdateScreen();
+                up.ShowDialog();
             });
 
             ChangeImageCommand = new RelayCommand<object>((p) =>
