@@ -85,8 +85,9 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-                // Lấy dc location chuyến đi bấm vào
-                MessageBox.Show(p.ToString());
+                Global.IntData = Int32.Parse(p.ToString());
+                DetailScreen dt = new DetailScreen();
+                dt.ShowDialog();
             });
         }
 

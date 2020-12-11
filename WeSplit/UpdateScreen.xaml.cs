@@ -11,22 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WeSplit.ViewModel;
-using LiveCharts;
-using LiveCharts.Wpf;
 
 namespace WeSplit
 {
     /// <summary>
-    /// Interaction logic for DetailScreen.xaml
+    /// Interaction logic for UpdateScreen.xaml
     /// </summary>
-    public partial class DetailScreen : Window
+    public partial class UpdateScreen : Window
     {
-        public DetailViewModel VM { get; set; }
-        public DetailScreen()
+        public UpdateScreen()
         {
             InitializeComponent();
-            DataContext = VM = new DetailViewModel();
         }
     }
 }

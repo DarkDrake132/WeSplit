@@ -86,6 +86,7 @@ namespace WeSplit.ViewModel
                 return true; 
             }, (p) =>
             {
+                Global.IntData = Int32.Parse(p.ToString());
                 DetailScreen dt = new DetailScreen();
                 dt.ShowDialog();
             });

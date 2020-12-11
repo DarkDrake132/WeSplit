@@ -94,6 +94,7 @@
     <Compile Include="Model\EXPENSE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Global.cs" />
     <Compile Include="Model\IMAGE_DESTINATION.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -104,6 +105,7 @@
     <Compile Include="Model\MEMBER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MemberWithPaid.cs" />
     <Compile Include="Model\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +130,9 @@
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateScreen.xaml.cs">
+      <DependentUpon>UpdateScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="usedToGo.xaml.cs">
       <DependentUpon>usedToGo.xaml</DependentUpon>
     </Compile>
@@ -137,6 +142,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OnGoingViewModel.cs" />
     <Compile Include="ViewModel\SplashScreenViewModel.cs" />
+    <Compile Include="ViewModel\UpdateScreenViewModel.cs" />
     <Compile Include="ViewModel\UsedToGoViewModel.cs" />
     <Page Include="CreateJourneyScreen.xaml">
       <SubType>Designer</SubType>
@@ -167,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

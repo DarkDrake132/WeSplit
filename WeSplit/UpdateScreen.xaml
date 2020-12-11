@@ -1,0 +1,206 @@
+﻿<Window x:Class="WeSplit.UpdateScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WeSplit"
+        mc:Ignorable="d"
+        DataContext="{StaticResource UpdateVM}"
+        Title="UpdateJourney" Height="706.5" Width="963" ResizeMode="NoResize">
+    <Grid Background="#FF494949">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="420"></ColumnDefinition>
+                <ColumnDefinition Width="420"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBox Text="{Binding curJourney.Title}" FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">
+                </TextBox>
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="{Binding ColorStatus,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Text="{Binding Status, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="2" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <Button Command="{Binding ChangeStatusCommand}" Background="Transparent" Width="auto" Height="auto" BorderBrush="Transparent">
+                    <materialDesign:PackIcon HorizontalAlignment="Center" VerticalAlignment="Center" Kind="CheckOutline" Height="47" Width="54" Background="Transparent" Canvas.Left="10" Canvas.Top="5" Foreground="White"/>
+                </Button>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="1" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+            <Border.Effect>
+                <DropShadowEffect></DropShadowEffect>
+            </Border.Effect>
+        </Border>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" >
+                        <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20">
+                            Thống kê chi tiết
+                        </TextBlock>
+                    </Grid>
+
+                    <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                                         Số tiền (VND)">
+                            </TextBlock>
+                            <ListView ItemsSource="{Binding ListPaid,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+                                                <TextBox FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Name}" TextWrapping="Wrap">
+                                                </TextBox>
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <TextBox Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap">
+                                                </TextBox>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Các khoản chi                                          Số tiền (VND)">
+                            </TextBlock>
+                            <ListView ItemsSource="{Binding ListExpe,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid Grid.Column="0">
+                                                <TextBox FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding objectPay}" TextWrapping="Wrap">
+                                                </TextBox>
+                                            </Grid>
+
+                                            <Grid Grid.Column="1">
+                                                <TextBox Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding cost}" TextWrapping="Wrap">
+                                                </TextBox>
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="1" CornerRadius="8" BorderBrush="Transparent" BorderThickness="9" Background="#FF2C2B2B">
+                <Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Border BorderBrush="White" BorderThickness="2" Width="210" Height="60" CornerRadius="2">
+                                <TextBlock TextAlignment="Center" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" TextWrapping="Wrap" Padding="21">
+                                    Textblock 1
+                                </TextBlock>
+                            </Border> 
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Border BorderBrush="White" BorderThickness="2" Width="210" Height="60" CornerRadius="2">
+                                <TextBlock TextAlignment="Center" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" TextWrapping="Wrap" Padding="21">
+                                    Textblock 2
+                                </TextBlock>
+                            </Border>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Border BorderBrush="White" BorderThickness="2" Width="220" Height="60" CornerRadius="2">
+                            <TextBlock TextAlignment="Center" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" TextWrapping="Wrap" Padding="21">
+                                    Textblock 3
+                            </TextBlock>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Button Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
+                                Button 1
+                            </Button>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Button Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
+                                Button 2
+                            </Button>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Button Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
+                                Button 3
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
