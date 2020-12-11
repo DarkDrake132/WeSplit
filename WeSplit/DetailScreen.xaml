@@ -196,7 +196,7 @@
                                     <DataTemplate>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="330"></ColumnDefinition>
+                                                <ColumnDefinition Width="300"></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
     
@@ -206,7 +206,7 @@
                                             </Grid>
 
                                             <Grid Grid.Column="1">
-                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap">
+                                                <TextBlock Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap">
                                                 </TextBlock>
                                              </Grid>
                                         </Grid>
@@ -221,7 +221,7 @@
                                     <DataTemplate>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="330"></ColumnDefinition>
+                                                <ColumnDefinition Width="300"></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
 
@@ -231,7 +231,7 @@
                                             </Grid>
 
                                             <Grid Grid.Column="1">
-                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding cost}" TextWrapping="Wrap">
+                                                <TextBlock Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding cost}" TextWrapping="Wrap">
                                                 </TextBlock>
                                             </Grid>
                                         </Grid>
