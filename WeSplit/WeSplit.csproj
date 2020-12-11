@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter.cs" />
     <Compile Include="CreateJourneyScreen.xaml.cs">
       <DependentUpon>CreateJourneyScreen.xaml</DependentUpon>
     </Compile>

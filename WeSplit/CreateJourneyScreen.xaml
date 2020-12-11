@@ -27,7 +27,7 @@
                             <ColumnDefinition Width="160"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <TextBox Grid.Column="0" Margin="5" Text="{Binding AddLocation}" x:Name="FloatingLocationBox" materialDesign:HintAssist.Hint="Tên địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                        <ComboBox Grid.Column="1" Margin="5" SelectedItem="{Binding AddState}" materialDesign:HintAssist.Hint="Trạng thái" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="42"  >
+                        <ComboBox Grid.Column="1" Margin="5" SelectedItem="{Binding AddState}" materialDesign:HintAssist.Hint="Trạng thái" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="42">
                             <ComboBoxItem IsSelected="True">
                                 Đang đi
                             </ComboBoxItem>
@@ -55,11 +55,13 @@
                             <ScrollViewer>
                                 <StackPanel Orientation="Horizontal">
                                     <StackPanel Margin="20 0">
-                                        <ListView x:Name="ImageBox" ItemsSource="{Binding ImageList}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView x:Name="ImageBox" ItemsSource="{Binding ListImage}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                                             <ListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border Margin="10" Width="150" Height="auto">
-                                                        <Image Source="{Binding Image}" Stretch="Fill"></Image> 
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
+                                                        </Border.Background>
                                                     </Border>
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>
@@ -101,30 +103,11 @@
                 </Grid>
                 <Border Grid.Row="1" Margin="5" BorderBrush="White" BorderThickness="2" CornerRadius="4">
                     <ScrollViewer>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Margin="20 0">
-                                <ListView x:Name="MemberBox" ItemsSource="{Binding Foods}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                                    <ListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border Margin="10" Width="150" Height="auto">
-                                                <StackPanel Background="{Binding Color}">
-                                                    <Border Width="auto" Height="100" CornerRadius="5" Margin="5">
-                                                        <Border.Background>
-                                                            <ImageBrush ImageSource="{Binding Image}" Stretch="Fill"></ImageBrush>
-                                                        </Border.Background>
-                                                    </Border>
-                                                    <TextBlock Margin="5" Text="{Binding DisplayName}" FontSize="14" TextWrapping="Wrap"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListView.ItemTemplate>
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                </ListView>
-                            </StackPanel>
+                        <StackPanel>
+                            <Grid>
+                                
+                            </Grid>
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </Border>
