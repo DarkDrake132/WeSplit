@@ -114,20 +114,39 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-                var item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.id == curJourney.Id).SingleOrDefault();
-                if (item.isFinish == 0)
+                
+            });
+
+            UpdateCommand = new RelayCommand<object>((p) =>
+            {
+                if (MemberDisplayName == "" || ObjectPaidDisplayName == "" || PaidDisplay == "")
                 {
-                    Status = "Đang thực hiện"; OnPropertyChanged("Status");
-                    ColorStatus = "Red"; OnPropertyChanged("ColorStatus");
-                    item.isFinish = 1;
+                    return false;
                 }
-                else
+                if (ListMemberWithObjectPaid.Where(x => x.ObjectPaid == ObjectPaidDisplayName && x.Paid.ToString() == PaidDisplay).Count() > 0
+                    || ListMemberWithObjectPaid.Where(x => x.Name == MemberDisplayName).Count() == 0)
                 {
-                    Status = "Đã hoàn thành"; OnPropertyChanged("Status");
-                    ColorStatus = "Green"; OnPropertyChanged("ColorStatus");
-                    item.isFinish = 0;
+                    return false;
                 }
-                DataProvider.Ins.DB.SaveChanges();
+                if (!int.TryParse(PaidDisplay, out int n) || PaidDisplay[0] == '-')
+                {
+                    return false;
+                }
+                return true;
+            }, (p) =>
+            {
+
+            });
+            DeleteCommand = new RelayCommand<object>((p) =>
+            {
+                if (ListMemberWithObjectPaid.Where(x => x.ObjectPaid == ObjectPaidDisplayName && x.Paid.ToString() == PaidDisplay && x.Name == MemberDisplayName).Count() == 0)
+                {
+                    return false;
+                }
+                return true;
+            }, (p) =>
+            {
+
             });
         }
 
