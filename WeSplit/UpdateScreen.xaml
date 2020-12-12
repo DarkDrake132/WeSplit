@@ -78,24 +78,30 @@
 
                     <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                                         Số tiền (VND)">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                  Tên khoản chi                 Số tiền (VND)">
                             </TextBlock>
-                            <ListView ItemsSource="{Binding ListPaid,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                            <ListView ItemsSource="{Binding ListMemberWithObjectPaid,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="300"></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition Width="140"></ColumnDefinition>
+                                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
 
                                             <Grid Grid.Column="0">
-                                                <TextBox FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Name}" TextWrapping="Wrap">
+                                                <TextBox FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Name}" TextWrapping="Wrap" IsEnabled="False">
                                                 </TextBox>
                                             </Grid>
 
                                             <Grid Grid.Column="1">
-                                                <TextBox Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap">
+                                                <TextBox FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Margin="2" Text="{Binding ObjectPaid}" TextWrapping="Wrap" IsEnabled="False">
+                                                </TextBox>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <TextBox Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap" IsEnabled="False">
                                                 </TextBox>
                                             </Grid>
                                         </Grid>
@@ -103,30 +109,6 @@
                                 </ListView.ItemTemplate>
                             </ListView>
 
-                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Các khoản chi                                          Số tiền (VND)">
-                            </TextBlock>
-                            <ListView ItemsSource="{Binding ListExpe,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="300"></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-
-                                            <Grid Grid.Column="0">
-                                                <TextBox FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding objectPay}" TextWrapping="Wrap">
-                                                </TextBox>
-                                            </Grid>
-
-                                            <Grid Grid.Column="1">
-                                                <TextBox Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding cost}" TextWrapping="Wrap">
-                                                </TextBox>
-                                            </Grid>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
@@ -151,26 +133,20 @@
 
                         <Grid Grid.Column="0">
                             <Border BorderBrush="White" BorderThickness="2" Width="210" Height="60" CornerRadius="2">
-                                <TextBlock TextAlignment="Center" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" TextWrapping="Wrap" Padding="21">
-                                    Textblock 1
-                                </TextBlock>
+                                <TextBox Text="{Binding MemberDisplayName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White"/>
                             </Border> 
                         </Grid>
 
                         <Grid Grid.Column="1">
                             <Border BorderBrush="White" BorderThickness="2" Width="210" Height="60" CornerRadius="2">
-                                <TextBlock TextAlignment="Center" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" TextWrapping="Wrap" Padding="21">
-                                    Textblock 2
-                                </TextBlock>
+                                <TextBox Text="{Binding ObjectPaidDisplayName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên khoản chi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White"/>
                             </Border>
                         </Grid>
                     </Grid>
 
                     <Grid Grid.Row="1">
                         <Border BorderBrush="White" BorderThickness="2" Width="220" Height="60" CornerRadius="2">
-                            <TextBlock TextAlignment="Center" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" TextWrapping="Wrap" Padding="21">
-                                    Textblock 3
-                            </TextBlock>
+                            <TextBox Text="{Binding PaidDisplay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Số tiền (VND)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White"/>
                         </Border>
                     </Grid>
 
@@ -182,20 +158,20 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <Button Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
-                                Button 1
+                            <Button Command="{Binding AddCommand}" Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
+                                Thêm
                             </Button>
                         </Grid>
 
                         <Grid Grid.Column="1">
-                            <Button Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
-                                Button 2
+                            <Button Command="{Binding DeleteCommand}" Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
+                                Xóa
                             </Button>
                         </Grid>
 
                         <Grid Grid.Column="2">
-                            <Button Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
-                                Button 3
+                            <Button Command="{Binding UpdateCommand}" Width="120" Height="50" Background="#FF494747" BorderBrush="Transparent">
+                                Sửa
                             </Button>
                         </Grid>
                     </Grid>
