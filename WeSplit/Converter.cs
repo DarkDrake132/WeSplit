@@ -14,8 +14,10 @@ namespace WeSplit
         {
             string relative = (string)value;
             string folder = Environment.CurrentDirectory.ToString();
+            string temp = System.IO.Directory.GetParent(folder).ToString();
+            temp = System.IO.Directory.GetParent(temp).ToString();
+            string absolutePath = $"{temp}{"\\Images/"}{relative}";
 
-            string absolutePath = $"{folder}{"\\Images/"}{relative}";
             return absolutePath;
         }
 

@@ -9,6 +9,9 @@
         mc:Ignorable="d"
         DataContext="{StaticResource DetailVM}"
         Title="DetailScreen" Height="706.5" Width="963" ResizeMode="NoResize">
+    <Window.Resources>
+        <local:AbsoluteConverter x:Key="converter"/>
+    </Window.Resources>
     <Grid Background="#FF494949">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -80,7 +83,7 @@
 
                         <Border Grid.Column="0" CornerRadius="8" Margin="10 5 5 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding SelectedImg,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></ImageBrush>
+                                <ImageBrush ImageSource="{Binding SelectedImg, Converter={StaticResource converter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></ImageBrush>
                             </Border.Background>
                         </Border>
 
@@ -125,7 +128,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border CornerRadius="8" BorderBrush="Transparent" Width="130" Height="120" Margin="2">
-                                    <Image Source="{Binding imageLink,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill">
+                                    <Image Source="{Binding imageLink, Converter={StaticResource converter},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill">
                                         <Image.InputBindings>
                                             <MouseBinding Gesture="LeftClick" Command="{Binding ElementName=imgList, Path=DataContext.ChangeImageCommand}" CommandParameter="{Binding imageLink}">
                                             </MouseBinding>

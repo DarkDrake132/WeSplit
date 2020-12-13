@@ -20,7 +20,6 @@ namespace WeSplit.Model
             this.IMAGE_DESTINATION = new HashSet<IMAGE_DESTINATION>();
             this.MEMBERs = new HashSet<MEMBER>();
         }
-    
         public int id { get; set; }
         public string C_location { get; set; }
         public string title { get; set; }
