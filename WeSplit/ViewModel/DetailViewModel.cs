@@ -64,6 +64,14 @@ namespace WeSplit.ViewModel
             get { return _selectedImg; }
             set { _selectedImg = value; }
         }
+        private ObservableCollection<Member_ObjectPay_Cost> _listMemCost;
+
+        public ObservableCollection<Member_ObjectPay_Cost> ListMemCost
+        {
+            get { return _listMemCost; }
+            set { _listMemCost = value; }
+        }
+
 
 
         public Func<ChartPoint, string> PointLabel { get; set; }
@@ -122,6 +130,7 @@ namespace WeSplit.ViewModel
             }
             PieChart1 = new SeriesCollection();
             ListPaid = new ObservableCollection<MemberWithPaid>();
+            ListMemCost = new ObservableCollection<Member_ObjectPay_Cost>();
             foreach (var item in ListMem)
             {
                 int sum = 0;
@@ -130,10 +139,15 @@ namespace WeSplit.ViewModel
                     if (iTem.idMember == item.id)
                     {
                         sum += iTem.cost.GetValueOrDefault();
+                        Member_ObjectPay_Cost tmp = new Member_ObjectPay_Cost(item.id, iTem.id, item.C_name, iTem.objectPay, iTem.cost);
+                        ListMemCost.Add(tmp);
                     }
                 }
                 double percent = ((double)sum / totalCost) * 100;
-                PieChart1.Add(new PieSeries { Values = new ChartValues<double> { Math.Round(percent,2) }, Title = item.C_name , DataLabels = true});
+                if (sum > 0) 
+                {
+                    PieChart1.Add(new PieSeries { Values = new ChartValues<double> { Math.Round(percent,2) }, Title = item.C_name , DataLabels = true});
+                }
                 MemberWithPaid temp = new MemberWithPaid(item.C_name, sum);
                 ListPaid.Add(temp);
             }

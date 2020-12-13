@@ -189,14 +189,14 @@
 
                     <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                                         Số tiền (VND)">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                                       Số tiền (VND)">
                             </TextBlock>
                             <ListView ItemsSource="{Binding ListPaid,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                                <ColumnDefinition Width="290"></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
     
@@ -214,24 +214,33 @@
                                 </ListView.ItemTemplate>
                             </ListView>
 
-                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Các khoản chi                                          Số tiền (VND)">
+                            <TextBlock FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 8">
+                                Các khoản chi
                             </TextBlock>
-                            <ListView ItemsSource="{Binding ListExpe,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên         Tên khoản chi        Số tiền (VND)">
+                            </TextBlock>
+                            <ListView ItemsSource="{Binding ListMemCost,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                                <ColumnDefinition Width="140"></ColumnDefinition>
+                                                <ColumnDefinition Width="150"></ColumnDefinition>
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
 
                                             <Grid Grid.Column="0">
-                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding objectPay}" TextWrapping="Wrap">
+                                                <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Name}" TextWrapping="Wrap">
                                                 </TextBlock>
                                             </Grid>
 
                                             <Grid Grid.Column="1">
-                                                <TextBlock Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding cost}" TextWrapping="Wrap">
+                                                <TextBlock Width="100" TextAlignment="Left" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding ObjectPaid}" TextWrapping="Wrap">
+                                                </TextBlock>
+                                            </Grid>
+                                            
+                                            <Grid Grid.Column="2">
+                                                <TextBlock Width="100" TextAlignment="Right" FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding Paid}" TextWrapping="Wrap">
                                                 </TextBlock>
                                             </Grid>
                                         </Grid>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Model
 {
-    class Member_ObjectPay_Cost
+    public class Member_ObjectPay_Cost
     {
         private int _id;
 
