@@ -78,7 +78,7 @@
 
                     <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên           Tên khoản chi       Số tiền (VND)">
+                            <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="Tên thành viên                     Tên khoản chi               Số tiền (VND)">
                             </TextBlock>
                             <ListView ItemsSource="{Binding ListMemberWithObjectPaid,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.ItemTemplate>
