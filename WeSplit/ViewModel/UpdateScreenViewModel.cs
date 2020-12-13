@@ -114,17 +114,68 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-                
+                if(DataProvider.Ins.DB.MEMBERs.Where(x => x.C_name == MemberDisplayName).Count() == 0)
+                {
+                    var nextId = DataProvider.Ins.DB.MEMBERs.Max(x => x.id);
+                    nextId++;
+                    var member = new MEMBER();
+                    //add new member
+                    member.idJourney = curJourney.Id;
+                    member.id = nextId;
+                    member.C_name = MemberDisplayName;
+                    DataProvider.Ins.DB.MEMBERs.Add(member);
+                    DataProvider.Ins.DB.SaveChanges();
+                    //
+                    var nextjob = 0;
+                    var expense = new EXPENSE();
+                    expense.idJourney = curJourney.Id;
+                    expense.idMember = member.id;
+                    expense.id = nextjob;
+                    expense.objectPay = ObjectPaidDisplayName;
+                    expense.cost = Convert.ToInt32(PaidDisplay);
+                    DataProvider.Ins.DB.EXPENSEs.Add(expense);
+                    DataProvider.Ins.DB.SaveChanges();
+                    LoadData();
+                }
+                else
+                {
+                    var member = from e in DataProvider.Ins.DB.MEMBERs
+                                 join c in DataProvider.Ins.DB.EXPENSEs on new { X1 = e.idJourney, X2 = e.id } equals new { X1 = c.idJourney, X2 = c.idMember }
+                                 where e.idJourney == curJourney.Id && e.C_name == MemberDisplayName
+                                 select new
+                                 {
+                                     idMember = e.id,
+                                     idPaid = c.id
+                                 };
+                    var nextjob = member.Max(x => x.idPaid);
+                    nextjob++;
+                    var expense = new EXPENSE();
+                    expense.idJourney = curJourney.Id;
+                    expense.idMember = member.Max(x => x.idMember);
+                    expense.id = nextjob;
+                    expense.objectPay = ObjectPaidDisplayName;
+                    expense.cost = Convert.ToInt32(PaidDisplay);
+                    DataProvider.Ins.DB.EXPENSEs.Add(expense);
+                    DataProvider.Ins.DB.SaveChanges();
+                    LoadData();
+                }
             });
 
             UpdateCommand = new RelayCommand<object>((p) =>
             {
+                if(SelectedItem == null)
+                {
+                    return false;
+                }
                 if (MemberDisplayName == "" || ObjectPaidDisplayName == "" || PaidDisplay == "")
                 {
                     return false;
                 }
-                if (ListMemberWithObjectPaid.Where(x => x.ObjectPaid == ObjectPaidDisplayName && x.Paid.ToString() == PaidDisplay).Count() > 0
-                    || ListMemberWithObjectPaid.Where(x => x.Name == MemberDisplayName).Count() == 0)
+                if (ListMemberWithObjectPaid.Where(x => x.ObjectPaid == ObjectPaidDisplayName && x.Paid.ToString() == PaidDisplay && x.Name == MemberDisplayName).Count() > 0)
+                {
+                    return false;
+                }
+                if (ListMemberWithObjectPaid.Where(x => x.IdPaid == SelectedItem.IdPaid && x.Id == SelectedItem.Id && x.ObjectPaid == ObjectPaidDisplayName && x.Paid.ToString() == PaidDisplay).Count() > 0)
                 {
                     return false;
                 }
@@ -135,10 +186,22 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-
+                var item = DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id && x.id == SelectedItem.IdPaid && x.objectPay == SelectedItem.ObjectPaid && x.cost == SelectedItem.Paid).SingleOrDefault();
+                item.objectPay = ObjectPaidDisplayName;
+                item.cost = Convert.ToInt32(PaidDisplay);
+                DataProvider.Ins.DB.SaveChanges();
+                LoadData();
             });
             DeleteCommand = new RelayCommand<object>((p) =>
             {
+                if(SelectedItem ==null)
+                {
+                    return false;
+                }
+                if(ObjectPaidDisplayName != SelectedItem.ObjectPaid && MemberDisplayName != SelectedItem.Name && PaidDisplay != SelectedItem.Paid.ToString())
+                {
+                    return false;
+                }
                 if (ListMemberWithObjectPaid.Where(x => x.ObjectPaid == ObjectPaidDisplayName && x.Paid.ToString() == PaidDisplay && x.Name == MemberDisplayName).Count() == 0)
                 {
                     return false;
@@ -146,7 +209,16 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-
+                var item = DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id && x.idMember == SelectedItem.Id && x.id == SelectedItem.IdPaid).SingleOrDefault();
+                DataProvider.Ins.DB.EXPENSEs.Remove(item);
+                DataProvider.Ins.DB.SaveChanges();
+                if(DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id && x.idMember == SelectedItem.Id).Count() == 0)
+                {
+                    var member = DataProvider.Ins.DB.MEMBERs.Where(x => x.id == SelectedItem.Id).SingleOrDefault();
+                    DataProvider.Ins.DB.MEMBERs.Remove(member);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+                LoadData();
             });
         }
 
@@ -180,16 +252,17 @@ namespace WeSplit.ViewModel
                         select new
                         {
                             id = p.id,
+                            idPaid = c.id,
                             name = p.C_name,
                             objectPaid = c.objectPay,
                             paid = c.cost
                         };
-            Console.WriteLine(query);
             ListMemberWithObjectPaid = new ObservableCollection<Member_ObjectPay_Cost>();
             foreach (var item in query)
             {
-                ListMemberWithObjectPaid.Add(new Member_ObjectPay_Cost(item.id, item.name, item.objectPaid, item.paid));
+                ListMemberWithObjectPaid.Add(new Member_ObjectPay_Cost(item.id, item.idPaid, item.name, item.objectPaid, item.paid));
             }
+            OnPropertyChanged("ListMemberWithObjectPaid");
         }
     }
 }

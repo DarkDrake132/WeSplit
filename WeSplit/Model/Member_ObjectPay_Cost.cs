@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeSplit.Model
 {
-    class Member_ObjectPay_Cost
+    public class Member_ObjectPay_Cost
     {
         private int _id;
 
@@ -15,6 +15,15 @@ namespace WeSplit.Model
             get { return _id; }
             set { _id = value; }
         }
+
+        private int _idPaid;
+
+        public int IdPaid
+        {
+            get { return _idPaid; }
+            set { _idPaid = value; }
+        }
+
 
         private string _name;
 
@@ -41,9 +50,10 @@ namespace WeSplit.Model
             set { _paid = value; }
         }
 
-        public Member_ObjectPay_Cost(int id, string name, string objectPaid, int? paid)
+        public Member_ObjectPay_Cost(int id, int idPaid, string name, string objectPaid, int? paid)
         {
             Id = id;
+            IdPaid = idPaid;
             Name = name;
             ObjectPaid = objectPaid;
             Paid = paid ?? default(int);
