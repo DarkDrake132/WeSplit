@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
         DataContext="{StaticResource DetailVM}"
-        Title="DetailScreen" Height="706.5" Width="963" ResizeMode="NoResize">
+        Title="DetailScreen" Height="706.5" Width="963" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:AbsoluteConverter x:Key="converter"/>
     </Window.Resources>

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
         DataContext="{StaticResource UpdateVM}"
-        Title="UpdateJourney" Height="706.5" Width="963" ResizeMode="NoResize">
+        Title="UpdateJourney" Height="706.5" Width="963" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF494949">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
