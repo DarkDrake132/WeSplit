@@ -39,7 +39,7 @@
                 <Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>
-                <TextBlock TextAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="{Binding ColorStatus}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Text="{Binding Status}">
+                <TextBlock TextAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontFamily="University" Foreground="{Binding ColorStatus,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Text="{Binding Status,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
             </Border>
 
@@ -83,7 +83,7 @@
 
                         <Border Grid.Column="0" CornerRadius="8" Margin="10 5 5 10">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding SelectedImg, Converter={StaticResource converter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"></ImageBrush>
+                                <ImageBrush ImageSource="{Binding SelectedImg, Converter={StaticResource converter},Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" RenderOptions.BitmapScalingMode="HighQuality"></ImageBrush>
                             </Border.Background>
                         </Border>
 
@@ -101,7 +101,7 @@
                             <TextBlock FontFamily="University" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2">
                                 Số người tham gia:
                             </TextBlock>
-                            <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding MemberCount}" TextWrapping="Wrap">
+                            <TextBlock FontFamily="University" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" FontSize="18" Margin="2" Text="{Binding MemberCount,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap">
                             </TextBlock>
                         </StackPanel>
                     </Grid>
@@ -127,8 +127,8 @@
                     <ListView x:Name="imgList" Grid.Row="1" ItemsSource="{Binding ListImg, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border CornerRadius="8" BorderBrush="Transparent" Width="130" Height="120" Margin="2">
-                                    <Image Source="{Binding imageLink, Converter={StaticResource converter},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill">
+                                <Border CornerRadius="8" BorderBrush="Transparent" Width="120" Height="120" Margin="2">
+                                    <Image Source="{Binding imageLink, Converter={StaticResource converter},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality">
                                         <Image.InputBindings>
                                             <MouseBinding Gesture="LeftClick" Command="{Binding ElementName=imgList, Path=DataContext.ChangeImageCommand}" CommandParameter="{Binding imageLink}">
                                             </MouseBinding>
@@ -169,7 +169,7 @@
                         </TextBlock>
                     </Grid>
 
-                    <lvc:PieChart Foreground="White" Grid.Row="1" Series="{Binding PieChart1}" Height="240" LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
+                    <lvc:PieChart Foreground="White" Grid.Row="1" Series="{Binding PieChart1,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Height="240" LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
                     </lvc:PieChart>
                 </Grid>
             </Border>

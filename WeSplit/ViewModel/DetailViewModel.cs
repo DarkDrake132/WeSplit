@@ -94,6 +94,7 @@ namespace WeSplit.ViewModel
             {
                 UpdateScreen up = new UpdateScreen();
                 up.ShowDialog();
+                GetData();
             });
 
             ChangeImageCommand = new RelayCommand<object>((p) =>
@@ -110,8 +111,8 @@ namespace WeSplit.ViewModel
         {
             double totalCost = 0;
             var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.id == Global.IntData).SingleOrDefault();
-            curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
-            SelectedImg = curJourney.Thumbnail;
+            curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);OnPropertyChanged("curJourney");
+            SelectedImg = curJourney.Thumbnail; OnPropertyChanged("SelectedImg");
             Status = "Trạng thái:\nĐang thực hiện";
             ColorStatus = "Red";
             if (curJourney.IsFinish == 1)
@@ -119,9 +120,9 @@ namespace WeSplit.ViewModel
                 Status = "Trạng thái:\nĐã hoàn thành";
                 ColorStatus = "Green";
             }
-            MemberCount = DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id).Count();
-            ListImg = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id));
-            PointLabel = chartPoint => string.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            OnPropertyChanged("Status"); OnPropertyChanged("ColorStatus");
+            MemberCount = DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id).Count(); OnPropertyChanged("MemberCount");
+            ListImg = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id)); OnPropertyChanged("ListImg");
             ListMem = new ObservableCollection<MEMBER>(DataProvider.Ins.DB.MEMBERs.Where(x => x.idJourney == curJourney.Id));
             ListExpe = new ObservableCollection<EXPENSE>(DataProvider.Ins.DB.EXPENSEs.Where(x => x.idJourney == curJourney.Id));
             foreach (var item in ListExpe)
@@ -151,6 +152,7 @@ namespace WeSplit.ViewModel
                 MemberWithPaid temp = new MemberWithPaid(item.C_name, sum);
                 ListPaid.Add(temp);
             }
+            OnPropertyChanged("PieChart1"); OnPropertyChanged("ListPaid"); OnPropertyChanged("ListMemCost");
         }
     }
 }
