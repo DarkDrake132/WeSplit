@@ -20,8 +20,11 @@ namespace WeSplit.ViewModel
         private ObservableCollection<MEMBER> _ListMember = new ObservableCollection<MEMBER>();
         public ObservableCollection<MEMBER> ListMember { get => _ListMember; set => _ListMember = value; }
 
-        private ObservableCollection<EXPENSE> _ListExpense = new ObservableCollection<EXPENSE>();
-        public ObservableCollection<EXPENSE> ListExpense { get => _ListExpense; set => _ListExpense = value; }
+        private List<EXPENSE> _ListExpense = new List<EXPENSE>();
+        public List<EXPENSE> ListExpense { get => _ListExpense; set => _ListExpense = value; }
+
+        private ObservableCollection<EXPENSE> _ListExpensePerMember = new ObservableCollection<EXPENSE>();
+        public ObservableCollection<EXPENSE> ListExpensePerMember { get => _ListExpensePerMember; set { _ListExpensePerMember = value; OnPropertyChanged(); } }
 
         public string AddLocation { get => _AddLocation; set => _AddLocation = value; }
         public string AddTitle { get => _AddTitle; set => _AddTitle = value; }
@@ -39,6 +42,31 @@ namespace WeSplit.ViewModel
                 OnPropertyChanged();
             }
         }
+        private MEMBER _SelectedMember;
+        public MEMBER SelectedMember
+        {
+            get => _SelectedMember;
+            set
+            {
+                _SelectedMember = value;
+                if (SelectedMember != null)
+                {
+                    ListExpensePerMember.Clear();
+                    var query = ListExpense.Where(x => x.idMember == SelectedMember.id).Select(y => y);
+
+                    foreach (var item in query.ToList())
+                    {
+                        ListExpensePerMember.Add(item);
+                    }
+
+                }
+                else if( SelectedMember == null)
+                {
+                    ListExpensePerMember.Clear();
+                }
+                OnPropertyChanged();
+            }
+        }
 
         private string _AddLocation;
         private string _AddTitle;
@@ -52,6 +80,7 @@ namespace WeSplit.ViewModel
         public ICommand AddMember { get; set; }
         public ICommand AddExpense { get; set; }
         public ICommand DeleteImage { get; set; }
+
         private void getFileName(ref string path)
         {
             string res = System.IO.Path.GetFileName(path);
@@ -76,7 +105,10 @@ namespace WeSplit.ViewModel
 
             newName = name;
         }
+        public void doSomeThing(){
 
+            return;
+            }
         public CreateJourneyViewModel()
         {
             string mainImg = "";
@@ -137,9 +169,22 @@ namespace WeSplit.ViewModel
 
             AddExpense = new RelayCommand<object>((p) =>
             {
+                if (SelectedMember == null)
+                {
+                    return false;
+                }
                 return true;
             }, (p)=> {
-                ListExpense.Add(new EXPENSE());
+                var query = ListExpense.Where(x => x.idMember == SelectedMember.id).Select(y => y);
+                var IdExpense = query.Count() + 1;
+
+                ListExpensePerMember.Add(new EXPENSE());
+
+                ListExpensePerMember.Last().id = IdExpense;
+                ListExpensePerMember.Last().idMember = SelectedMember.id;
+                ListExpensePerMember.Last().idJourney = id;
+
+                ListExpense.Add(ListExpensePerMember.Last());
             });
 
             AddMember = new RelayCommand<object>((p) =>
@@ -147,15 +192,12 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) => 
             {
+                int IdMember = ListMember.Count + 1;
+
                 ListMember.Add(new MEMBER());
-                ListMember[ListMember.Count - 1].EXPENSEs.Add(new EXPENSE());
-                AddExpense = new RelayCommand<object>((a) =>
-                {
-                    return true;
-                }, (a) => {
-                    ListMember[ListMember.Count - 1].EXPENSEs.Add(new EXPENSE());
-                });
-                var IdMember = DataProvider.Ins.DB.MEMBERs.Max(x => x.id);
+                ListMember.Last().id = IdMember;
+                
+                //var IdMember = DataProvider.Ins.DB.MEMBERs.Max(x => x.id);
             });
 
             SaveAll = new RelayCommand<object>((p) =>
@@ -181,26 +223,28 @@ namespace WeSplit.ViewModel
                 DataProvider.Ins.DB.JOURNEYs.Add(new JOURNEY() { id = id, C_location = AddLocation, title = AddTitle, isFinish = (AddState.Contains("Kết thúc")) ? 1 : 0, thumbnailLink = mainImg });
 
                 //members' DB
-                var IdMember = 1;
-                foreach (var temp in ListMember)
+                foreach (var item in ListMember)
                 {
-                    temp.EXPENSEs.Add(new EXPENSE());
-                    temp.idJourney = id;
-                    temp.id = IdMember;
-                    IdMember += 1;
-                    DataProvider.Ins.DB.MEMBERs.Add(temp);
+                    item.idJourney = id;
+                    DataProvider.Ins.DB.MEMBERs.Add(item);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+
+                foreach (var item in ListExpense)
+                {
+                    DataProvider.Ins.DB.EXPENSEs.Add(item);
                     DataProvider.Ins.DB.SaveChanges();
                 }
 
                 //Images' DB
                 var IdImage = 1;
-                foreach (var temp in ListImage)
+                foreach (var item in ListImage)
                 {
-                    if(temp.id != -1)
+                    if(item.id != -1)
                     {
-                        temp.id = IdImage;
+                        item.id = IdImage;
                         IdImage += 1;
-                        DataProvider.Ins.DB.IMAGE_DESTINATION.Add(temp);
+                        DataProvider.Ins.DB.IMAGE_DESTINATION.Add(item);
                         DataProvider.Ins.DB.SaveChanges();
                     }
                 }

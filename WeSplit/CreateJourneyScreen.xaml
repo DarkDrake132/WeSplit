@@ -31,10 +31,10 @@
                         </Grid.ColumnDefinitions>
                         <TextBox Foreground="White" Grid.Column="0" Margin="5" Text="{Binding AddLocation}" x:Name="FloatingLocationBox" materialDesign:HintAssist.Hint="Tên địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         <ComboBox Foreground="White" Grid.Column="1" Margin="5" SelectedItem="{Binding AddState}" materialDesign:HintAssist.Hint="Trạng thái" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="42">
-                            <ComboBoxItem IsSelected="True">
+                            <ComboBoxItem IsSelected="True" Foreground="Black">
                                 Đang đi
                             </ComboBoxItem>
-                            <ComboBoxItem>
+                            <ComboBoxItem Foreground="Black">
                                 Kết thúc
                             </ComboBoxItem>
                         </ComboBox>
@@ -103,50 +103,49 @@
                 </Grid>
                 <Border Grid.Row="1" Margin="5" BorderBrush="White" BorderThickness="2" CornerRadius="4">
                     <Grid>
-                        <ListView Grid.Column="1" ItemsSource="{Binding ListMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <ListView Grid.Column="0" ItemsSource="{Binding ListMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="180"/>
-                                                <ColumnDefinition Width="*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBox Grid.Column="0" Text="{Binding C_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Grid.Column="0" Text="{Binding C_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="180"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-                                            <ListBox Grid.Column="1" ItemsSource="{Binding EXPENSEs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                                                <ListBox.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Grid>
-                                                            <Grid.ColumnDefinitions>
-                                                                <ColumnDefinition Width="150"/>
-                                                                <ColumnDefinition Width="100"/>
-                                                            </Grid.ColumnDefinitions>
-                                                            <TextBox Grid.Column="0" Text="{Binding ObjectPay}" Margin="5" materialDesign:HintAssist.Hint="Khoản chi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                            <TextBox Grid.Column="1" Text="{Binding cost}" Margin="5" materialDesign:HintAssist.Hint="Chi phí" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                        </Grid>
-                                                    </DataTemplate>
-                                                </ListBox.ItemTemplate>
-                                            </ListBox>
-                                        </Grid>
-                                        <Button HorizontalAlignment="Right" Command="{Binding AddExpense}" Margin="0 10 60 0" Style="{StaticResource MaterialDesignRaisedButton}" Width="170" ToolTip="Resource name: MaterialDesignRaisedButton">
-                                            <StackPanel Orientation="Horizontal">
-                                                <materialDesign:PackIcon Kind="CartPlus" />
-                                                <TextBlock Margin="15 0 0 0">Thêm khoản chi</TextBlock>
-                                            </StackPanel>
-                                        </Button>
-                                    </StackPanel>
+                        <ListView Grid.Column="1" ItemsSource="{Binding ListExpensePerMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="100"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Text="{Binding objectPay}" Foreground="White" Margin="5" materialDesign:HintAssist.Hint="Khoản chi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Grid.Column="1" Text="{Binding cost}" Foreground="White" Margin="5" materialDesign:HintAssist.Hint="Chi phí" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    </Grid>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </Grid>
                 </Border>
-                <Button Grid.Row="2" Command="{Binding AddMember}" Width="200" ToolTip="Thêm thành viên" Background="#FF494747" BorderBrush="Transparent">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="AccountPlus" />
-                        <TextBlock Margin="15 0 0 0">Thêm thành viên</TextBlock>
-                    </StackPanel>
-                </Button>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Command="{Binding AddMember}" Width="200" ToolTip="Thêm thành viên" Background="#FF494747" BorderBrush="Transparent" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountPlus" />
+                            <TextBlock Margin="15 0 0 0">Thêm thành viên</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding AddExpense}" Width="200" ToolTip="Thêm Khoản chi" Background="#FF494747" BorderBrush="Transparent" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="CartPlus" />
+                            <TextBlock Margin="15 0 0 0">Thêm khoản chi</TextBlock>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>
