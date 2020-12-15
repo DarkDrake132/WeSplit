@@ -37,17 +37,5 @@ namespace WeSplit
                 this.Close();
             }
         }
-        private void turnOffButton_Click(object sender, RoutedEventArgs e)
-        {
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            config.AppSettings.Settings["checkShowDialog"].Value = "false";
-            config.Save(ConfigurationSaveMode.Minimal);
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mw = new MainWindow();
-            mw.Show();
-            this.Close();
-        }
     }
 }

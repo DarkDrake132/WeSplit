@@ -4,21 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeSplit"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{StaticResource SplashScreenVM}"
         Title="SplashScreen" Height="450" Width="400" Loaded="Window_Load"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        x:Name="SplashScreenWindow"
+        Background="Gray">
     <Window.Resources>
         <local:AbsoluteConverter x:Key="converter"/>
     </Window.Resources>
     <StackPanel>
-        <Grid Height="300" Width="Auto" MaxWidth="500">
-            <Image Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality" Source="{Binding ShowImage, Converter={StaticResource converter}}"/>
-        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <ToggleButton Command="{Binding CloseDialogCommand}" Background="Black" Margin="10" Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" ToolTip="Không mở hộp thoai này vào lần sau" IsChecked="{Binding CloseDialog}" />
+            <Button Margin="10" Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=SplashScreenWindow}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" ToolTip="Đóng" Background="Red" Height="30" Width="30" BorderBrush="Transparent">
+                <materialDesign:PackIcon Kind="CloseCircleOutline"/>
+            </Button>
+        </StackPanel>
+        <Border Width="330" Height="300" CornerRadius="6">
+            <Border.Background>
+                <ImageBrush RenderOptions.BitmapScalingMode="HighQuality" ImageSource="{Binding ShowImage, Converter={StaticResource converter}}"/>
+            </Border.Background>
+        </Border>
         <StackPanel>
-            <CheckBox Content="Never show the dialog again!" HorizontalAlignment="Center" VerticalAlignment="Center" Height="45" FontSize="15" Click="turnOffButton_Click"/>
-            <Button Content="Close" Click="Button_Click"
-                    Width="70" Margin="0 10 0 10" />
+            <TextBlock Text="{Binding LocationName}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="University" FontStyle="Italic" Margin="0 20 0 0" FontSize="20" FontWeight="Bold" Foreground="WhiteSmoke"/>
+            <TextBlock Text="{Binding SplashTitle}" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="University" FontStyle="Italic" Margin="0 5 0 0" FontSize="15" FontWeight="Bold" Foreground="WhiteSmoke"/>
         </StackPanel>
     </StackPanel>
 </Window>
