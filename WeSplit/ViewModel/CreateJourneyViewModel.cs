@@ -51,7 +51,6 @@ namespace WeSplit.ViewModel
                 _SelectedMember = value;
                 if (SelectedMember != null)
                 {
-                    ListExpensePerMember.Clear();
                     var query = ListExpense.Where(x => x.idMember == SelectedMember.id).Select(y => y);
 
                     foreach (var item in query.ToList())
@@ -59,10 +58,6 @@ namespace WeSplit.ViewModel
                         ListExpensePerMember.Add(item);
                     }
 
-                }
-                else if( SelectedMember == null)
-                {
-                    ListExpensePerMember.Clear();
                 }
                 OnPropertyChanged();
             }
@@ -192,6 +187,7 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) => 
             {
+                ListExpensePerMember.Clear();
                 int IdMember = ListMember.Count + 1;
 
                 ListMember.Add(new MEMBER());
