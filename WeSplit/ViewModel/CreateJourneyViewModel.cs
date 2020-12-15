@@ -29,6 +29,17 @@ namespace WeSplit.ViewModel
         public string Image { get => _Image; set => _Image = value; }
         public string AddState { get => _AddState; set => _AddState = value; }
 
+        private IMAGE_DESTINATION _SelectedImage;
+        public IMAGE_DESTINATION SelectedImage
+        {
+            get => _SelectedImage;
+            set
+            {
+                _SelectedImage = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _AddLocation;
         private string _AddTitle;
         private string _AddState;
@@ -40,6 +51,7 @@ namespace WeSplit.ViewModel
         public ICommand SaveAll { get; set; }
         public ICommand AddMember { get; set; }
         public ICommand AddExpense { get; set; }
+        public ICommand DeleteImage { get; set; }
         private void getFileName(ref string path)
         {
             string res = System.IO.Path.GetFileName(path);
@@ -107,6 +119,22 @@ namespace WeSplit.ViewModel
                 }
             });
 
+            DeleteImage = new RelayCommand<object>((p) =>
+              {
+                  if (SelectedImage == null)
+                  {
+                      return false;
+                  }
+                  return true;
+              }, (p) => 
+              {
+                  if (SelectedImage.imageLink == mainImg)
+                  {
+                      mainImg = "";
+                  }
+                  ListImage.Remove(SelectedImage);
+              });
+
             AddExpense = new RelayCommand<object>((p) =>
             {
                 return true;
@@ -120,6 +148,13 @@ namespace WeSplit.ViewModel
             }, (p) => 
             {
                 ListMember.Add(new MEMBER());
+                ListMember[ListMember.Count - 1].EXPENSEs.Add(new EXPENSE());
+                AddExpense = new RelayCommand<object>((a) =>
+                {
+                    return true;
+                }, (a) => {
+                    ListMember[ListMember.Count - 1].EXPENSEs.Add(new EXPENSE());
+                });
                 var IdMember = DataProvider.Ins.DB.MEMBERs.Max(x => x.id);
             });
 
@@ -149,6 +184,7 @@ namespace WeSplit.ViewModel
                 var IdMember = 1;
                 foreach (var temp in ListMember)
                 {
+                    temp.EXPENSEs.Add(new EXPENSE());
                     temp.idJourney = id;
                     temp.id = IdMember;
                     IdMember += 1;

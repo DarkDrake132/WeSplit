@@ -6,11 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WeSplit.Model;
+using System.Windows.Forms;
+using System.IO;
 
 namespace WeSplit.ViewModel
 {
     class UpdateScreenViewModel : BaseViewModel
     {
+        private ObservableCollection<IMAGE_DESTINATION> _ListImage;
+        public ObservableCollection<IMAGE_DESTINATION> ListImage { get => _ListImage; set { _ListImage = value;  OnPropertyChanged(); } }
+
+        private IMAGE_DESTINATION _SelectedImage;
+        public IMAGE_DESTINATION SelectedImage
+        {
+            get => _SelectedImage;
+            set
+            {
+                _SelectedImage = value;
+                OnPropertyChanged();
+            }
+        }
+
         private JourneyCollector _curJourney;
         public JourneyCollector curJourney
         {
@@ -57,7 +73,8 @@ namespace WeSplit.ViewModel
             }
         }
 
-
+        private string _MainImage;
+        public string MainImage { get => _MainImage; set { _MainImage = value; OnPropertyChanged(); } }
 
         public string ColorStatus { get; set; }
         public string Status { get; set; }
@@ -71,10 +88,73 @@ namespace WeSplit.ViewModel
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand UpdateCommand { get; set; }
+        public ICommand ChangeMainImageCommand { get; set; }
+        public ICommand AddActivityImageCommand { get; set; }
+        public ICommand DeleteActivityImageCommand { get; set; }
 
         public UpdateScreenViewModel()
         {
             GetData();
+
+            ChangeMainImageCommand = new RelayCommand<object>((p) =>
+             {
+                  return true;
+             }, (p) =>
+             {
+                 OpenFileDialog ofd = new OpenFileDialog();
+                 ofd.Filter = "(*.jpg)|*.jpg|(*.png)|.*png";
+                 DialogResult dr = ofd.ShowDialog();
+                 if (dr == System.Windows.Forms.DialogResult.OK)
+                 {
+                     var tempName = "";
+                     changedLocation(ofd.FileName.ToString(), System.IO.Path.GetFileName(ofd.FileName.ToString()), ref tempName);
+                     MainImage = tempName;
+
+                     var item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.id == curJourney.Id).SingleOrDefault();
+                     item.thumbnailLink = MainImage;
+                     DataProvider.Ins.DB.SaveChanges();
+                 }
+             });
+
+            AddActivityImageCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "(*.jpg)|*.jpg|(*.png)|.*png";
+                DialogResult dr = ofd.ShowDialog();
+                if (dr == System.Windows.Forms.DialogResult.OK)
+                {
+                    ListImage.Add(new IMAGE_DESTINATION());
+                    ListImage[ListImage.Count - 1].idJourney = curJourney.Id;
+                    ListImage[ListImage.Count - 1].id = ListImage[ListImage.Count - 2].id + 1;
+
+                    string tempName = "";
+                    changedLocation(ofd.FileName.ToString(), System.IO.Path.GetFileName(ofd.FileName.ToString()), ref tempName);
+                    ListImage[ListImage.Count - 1].imageLink = tempName;
+
+
+                    DataProvider.Ins.DB.IMAGE_DESTINATION.Add(ListImage.Last());
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+            });
+
+            DeleteActivityImageCommand = new RelayCommand<object>((p) =>
+            {
+                if (SelectedImage == null)
+                {
+                    return false;
+                }
+                return true;
+            }, (p) =>
+            {
+                //var item = DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.id == SelectedImage.id).Single();
+                DataProvider.Ins.DB.IMAGE_DESTINATION.Remove(SelectedImage);
+                DataProvider.Ins.DB.SaveChanges();
+
+                ListImage.Remove(SelectedImage);
+            });
 
             ChangeStatusCommand = new RelayCommand<object>((p) =>
             {
@@ -192,6 +272,7 @@ namespace WeSplit.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 LoadData();
             });
+
             DeleteCommand = new RelayCommand<object>((p) =>
             {
                 if(SelectedItem ==null)
@@ -240,6 +321,9 @@ namespace WeSplit.ViewModel
                 Status = "Đã hoàn thành";
             }
 
+            MainImage = curJourney.Thumbnail;
+            ListImage = new ObservableCollection<IMAGE_DESTINATION>(DataProvider.Ins.DB.IMAGE_DESTINATION.Where(x => x.idJourney == curJourney.Id));
+
             LoadData();
             
         }
@@ -263,6 +347,31 @@ namespace WeSplit.ViewModel
                 ListMemberWithObjectPaid.Add(new Member_ObjectPay_Cost(item.id, item.idPaid, item.name, item.objectPaid, item.paid));
             }
             OnPropertyChanged("ListMemberWithObjectPaid");
+        }
+
+        private void getFileName(ref string path)
+        {
+            string res = System.IO.Path.GetFileName(path);
+            path = path.Substring(0, path.IndexOf(res) - 1);
+            //return res;
+        }
+        private void changedLocation(string sourcePath, string name, ref string newName)
+        {
+            string targetPath = Environment.CurrentDirectory.ToString();
+            string temp = System.IO.Directory.GetParent(targetPath).ToString();
+            temp = System.IO.Directory.GetParent(temp).ToString();
+            targetPath = temp + "/Images";
+
+            getFileName(ref sourcePath);
+            string sourceFile = System.IO.Path.Combine(@sourcePath, name);
+            var tail = name.Substring(name.Length - 4);
+            name = DateTime.Now.ToString("yyyyMMddHHmmssfff") + tail;
+            string destFile = System.IO.Path.Combine(@targetPath, name);
+            FileInfo f1 = new FileInfo(sourceFile);
+            FileInfo f2 = new FileInfo(destFile);
+            f1.CopyTo(destFile);
+
+            newName = name;
         }
     }
 }

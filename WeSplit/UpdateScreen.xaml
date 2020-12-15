@@ -8,6 +8,9 @@
         mc:Ignorable="d"
         DataContext="{StaticResource UpdateVM}"
         Title="UpdateJourney" Height="706.5" Width="963" ResizeMode="NoResize">
+    <Window.Resources>
+        <local:AbsoluteConverter x:Key="converter"/>
+    </Window.Resources>
     <Grid Background="#FF494949">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -52,6 +55,57 @@
             <Border.Effect>
                 <DropShadowEffect></DropShadowEffect>
             </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" CornerRadius="3" Margin="5" BorderThickness="4" BorderBrush="White">
+                        <Image Source="{Binding MainImage, Converter={StaticResource converter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Border>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Command="{Binding ChangeMainImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thay đổi ảnh đại diện">
+                            <materialDesign:PackIcon Kind="Image" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+                <GridSplitter Background="BlueViolet"/>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" CornerRadius="3" Margin="5" BorderThickness="4" BorderBrush="White">
+                        <ListView x:Name="ImageBox" ItemsSource="{Binding ListImage, Mode=TwoWay}" SelectedItem="{Binding SelectedImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="60" Height="60">
+                                        <Image Source="{Binding imageLink, Converter={StaticResource converter}}" Stretch="Fill"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ListView>
+                    </Border>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Command="{Binding AddActivityImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thay đổi hình hoạt động" Margin="10">
+                            <materialDesign:PackIcon Kind="Image" />
+                        </Button>
+                        <Button Command="{Binding DeleteActivityImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Xóa ảnh" Background="OrangeRed" Margin="10">
+                            <materialDesign:PackIcon Kind="Delete"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Border>
 
         <Grid Grid.Row="2">
