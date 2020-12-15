@@ -108,10 +108,19 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         
-                        <ListView Grid.Column="0" ItemsSource="{Binding ListMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView x:Name="ListMemberName" Grid.Column="0" ItemsSource="{Binding ListMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedMember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Foreground" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBox Grid.Column="0" Text="{Binding C_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="180"/>
+                                    <TextBox Grid.Column="0" Text="{Binding C_name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="White" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="140"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -121,7 +130,7 @@
                                 <DataTemplate>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="120"/>
                                             <ColumnDefinition Width="100"/>
                                         </Grid.ColumnDefinitions>
                                         <TextBox Grid.Column="0" Text="{Binding objectPay}" Foreground="White" Margin="5" materialDesign:HintAssist.Hint="Khoản chi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />

@@ -51,6 +51,7 @@ namespace WeSplit.ViewModel
                 _SelectedMember = value;
                 if (SelectedMember != null)
                 {
+                    ListExpensePerMember.Clear();
                     var query = ListExpense.Where(x => x.idMember == SelectedMember.id).Select(y => y);
 
                     foreach (var item in query.ToList())
@@ -62,7 +63,6 @@ namespace WeSplit.ViewModel
                 OnPropertyChanged();
             }
         }
-
         private string _AddLocation;
         private string _AddTitle;
         private string _AddState;
@@ -75,6 +75,7 @@ namespace WeSplit.ViewModel
         public ICommand AddMember { get; set; }
         public ICommand AddExpense { get; set; }
         public ICommand DeleteImage { get; set; }
+        
 
         private void getFileName(ref string path)
         {
