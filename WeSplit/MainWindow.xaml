@@ -9,7 +9,6 @@
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="600" Width="1024"
         ResizeMode="NoResize">
-    
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
