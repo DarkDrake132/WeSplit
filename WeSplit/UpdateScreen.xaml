@@ -69,7 +69,7 @@
                         <Image Source="{Binding MainImage, Converter={StaticResource converter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </Border>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button Command="{Binding ChangeMainImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thay đổi ảnh đại diện">
+                        <Button Command="{Binding ChangeMainImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thay đổi ảnh đại diện" Background="#FF494747" BorderBrush="Transparent">
                             <materialDesign:PackIcon Kind="Image" />
                         </Button>
                     </StackPanel>
@@ -97,10 +97,10 @@
                         </ListView>
                     </Border>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button Command="{Binding AddActivityImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thay đổi hình hoạt động" Margin="10">
+                        <Button Command="{Binding AddActivityImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Thay đổi hình hoạt động" Margin="10" Background="#FF494747" BorderBrush="Transparent">
                             <materialDesign:PackIcon Kind="Image" />
                         </Button>
-                        <Button Command="{Binding DeleteActivityImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Xóa ảnh" Background="OrangeRed" Margin="10">
+                        <Button Command="{Binding DeleteActivityImageCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" ToolTip="Xóa ảnh" Margin="10" Background="#FFD11C1C" BorderBrush="Transparent">
                             <materialDesign:PackIcon Kind="Delete"/>
                         </Button>
                     </StackPanel>
