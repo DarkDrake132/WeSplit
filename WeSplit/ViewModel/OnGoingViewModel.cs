@@ -52,16 +52,7 @@ namespace WeSplit.ViewModel
 
         public OnGoingViewModel()
         {
-            OldData = new ObservableCollection<JOURNEY>();
-            OldData = LoadData();
-            List = new ObservableCollection<JOURNEY>();
-            SearchTextByLocation = "";
-            SearchTextMemberName = "";
-            foreach(var journey in OldData)
-            {
-                List.Add(journey);
-            }
-
+            GetData();
 
             SearchCommand = new RelayCommand<object>((p) =>
             {
@@ -89,6 +80,7 @@ namespace WeSplit.ViewModel
                 Global.IntData = Int32.Parse(p.ToString());
                 DetailScreen dt = new DetailScreen();
                 dt.ShowDialog();
+                GetData();
             });
         }
 
@@ -113,6 +105,20 @@ namespace WeSplit.ViewModel
         {
             var data = new ObservableCollection<JOURNEY>(DataProvider.Ins.DB.JOURNEYs.Where(x => x.isFinish == 0));
             return data;
+        }
+
+        private void GetData()
+        {
+            OldData = new ObservableCollection<JOURNEY>();
+            OldData = LoadData();
+            List = new ObservableCollection<JOURNEY>();
+            SearchTextByLocation = "";
+            SearchTextMemberName = "";
+            foreach (var journey in OldData)
+            {
+                List.Add(journey);
+            }
+            OnPropertyChanged("List");
         }
     }
 }

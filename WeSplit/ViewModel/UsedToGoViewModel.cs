@@ -20,16 +20,6 @@ namespace WeSplit.ViewModel
             get => _list;
             set { _list = value; OnPropertyChanged(); }
         }
-
-        //private Journey _SelectedItem;
-
-        //public Journey SelectedItem
-        //{
-        //    get { return _SelectedItem; }
-        //    set { _SelectedItem = value; }
-        //}
-
-
         private string _SearchTextByLocation;
 
         public string SearchTextByLocation
@@ -51,16 +41,7 @@ namespace WeSplit.ViewModel
 
         public UsedToGoViewModel()
         {
-            OldData = new ObservableCollection<JOURNEY>();
-            OldData = LoadData();
-            List = new ObservableCollection<JOURNEY>();
-            SearchTextByLocation = "";
-            SearchTextMemberName = "";
-            foreach (var journey in OldData)
-            {
-                List.Add(journey);
-            }
-            List = OldData;
+            GetData();
 
             SearchCommand = new RelayCommand<object>((p) =>
             {
@@ -88,7 +69,22 @@ namespace WeSplit.ViewModel
                 Global.IntData = Int32.Parse(p.ToString());
                 DetailScreen dt = new DetailScreen();
                 dt.ShowDialog();
+                GetData();
             });
+        }
+
+        private void GetData()
+        {
+            OldData = new ObservableCollection<JOURNEY>();
+            OldData = LoadData();
+            List = new ObservableCollection<JOURNEY>();
+            SearchTextByLocation = "";
+            SearchTextMemberName = "";
+            foreach (var journey in OldData)
+            {
+                List.Add(journey);
+            }
+            OnPropertyChanged("List");
         }
 
         private bool ContainsMember(JOURNEY journey, string searchTextMemberName)

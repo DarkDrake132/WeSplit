@@ -82,8 +82,7 @@ namespace WeSplit.ViewModel
         public string MemberDisplayName { get; set; }
         public string ObjectPaidDisplayName { get; set; }
         public string PaidDisplay { get; set; }
-
-
+        public string KindIcon { get; set; }
         public ICommand ChangeStatusCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
@@ -162,16 +161,18 @@ namespace WeSplit.ViewModel
             }, (p) =>
             {
                 var item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.id == curJourney.Id).SingleOrDefault();
-                if(item.isFinish == 0)
+                if (item.isFinish == 0)
                 {
-                    Status = "Đang thực hiện"; OnPropertyChanged("Status");
-                    ColorStatus = "Red"; OnPropertyChanged("ColorStatus");
+                    Status = "Đã hoàn thành"; OnPropertyChanged("Status");
+                    ColorStatus = "Green"; OnPropertyChanged("ColorStatus");
+                    KindIcon = "CloseOutline";OnPropertyChanged("KindIcon");
                     item.isFinish = 1;
                 }
                 else
                 {
-                    Status = "Đã hoàn thành"; OnPropertyChanged("Status");
-                    ColorStatus = "Green"; OnPropertyChanged("ColorStatus");
+                    Status = "Đang thực hiện"; OnPropertyChanged("Status");
+                    ColorStatus = "Red"; OnPropertyChanged("ColorStatus");
+                    KindIcon = "CheckOutline"; OnPropertyChanged("KindIcon");
                     item.isFinish = 0;
                 }
                 DataProvider.Ins.DB.SaveChanges();
@@ -310,15 +311,17 @@ namespace WeSplit.ViewModel
             PaidDisplay = "";
             var Item = DataProvider.Ins.DB.JOURNEYs.Where(x => x.id == Global.IntData).SingleOrDefault();
             curJourney = new JourneyCollector(Item.id, Item.C_location, Item.title, Item.isFinish, Item.thumbnailLink);
-            if(curJourney.Id == 0)
+            if (curJourney.IsFinish == 0)
             {
                 ColorStatus = "Red";
                 Status = "Đang thực hiện";
+                KindIcon = "CheckOutline";
             }
             else
             {
                 ColorStatus = "Green";
                 Status = "Đã hoàn thành";
+                KindIcon = "CloseOutline";
             }
 
             MainImage = curJourney.Thumbnail;

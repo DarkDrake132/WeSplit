@@ -29,7 +29,7 @@
                 <TextBox Text="{Binding SearchTextMemberName, Mode=TwoWay}" FontSize="20" Margin="10" materialDesign:HintAssist.Hint="Tên thành viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Height="56" Foreground="#FFFBFAFA" CaretBrush="White" SelectionBrush="White" />
             </StackPanel>
             <Canvas Grid.Column="2">
-                <Button Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}" Background="#FF989BB0" DockPanel.Dock="Right" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionLightButton}" ToolTip="Tìm kiếm" Grid.Column="2" Canvas.Left="21" Canvas.Top="17" BorderBrush="#FF3B3842">
+                <Button Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionLightButton}" ToolTip="Tìm kiếm" Grid.Column="2" Canvas.Left="21" Canvas.Top="17" Background="#FF7A7373" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="FileFind" Height="24" Width="24" />
                 </Button>
             </Canvas>
@@ -44,7 +44,7 @@
                         <StackPanel Margin="8" Width="150" Height="auto">
                             <Border Width="auto" Height="120" CornerRadius="20">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="{Binding thumbnailLink, Converter={StaticResource converter}}" Stretch="Fill"></ImageBrush>
+                                    <ImageBrush ImageSource="{Binding thumbnailLink, Converter={StaticResource converter}}" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"></ImageBrush>
                                 </Border.Background>
                             </Border>
                             <TextBlock FontFamily="University" Foreground="White" FontWeight="Bold" TextAlignment="Center" Margin="5 5 5 0" Text="{Binding title}" FontSize="19" TextWrapping="Wrap"/>

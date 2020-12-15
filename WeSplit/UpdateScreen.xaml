@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
         DataContext="{StaticResource UpdateVM}"
-        Title="UpdateJourney" Height="706.5" Width="963" ResizeMode="NoResize">
+        Title="UpdateJourney" Height="706.5" Width="963" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <local:AbsoluteConverter x:Key="converter"/>
     </Window.Resources>
@@ -46,7 +46,7 @@
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>
                 <Button Command="{Binding ChangeStatusCommand}" Background="Transparent" Width="auto" Height="auto" BorderBrush="Transparent">
-                    <materialDesign:PackIcon HorizontalAlignment="Center" VerticalAlignment="Center" Kind="CheckOutline" Height="47" Width="54" Background="Transparent" Canvas.Left="10" Canvas.Top="5" Foreground="White"/>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding KindIcon, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Height="47" Width="54" Background="Transparent" Canvas.Left="10" Canvas.Top="5" Foreground="White"/>
                 </Button>
             </Border>
         </Grid>
