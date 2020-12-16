@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
+        x:Name="MainWindowScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource MainVM}"
         Title="MainWindow" Height="700" Width="1064" WindowStartupLocation="CenterScreen"
@@ -51,14 +52,17 @@
                         </Grid>
                     </Button>
                 </StackPanel>
-                <Grid Grid.Row="2">
-                    <Button Command="{Binding CreateJourneyCommand}" Height="45" Margin="10,52" Background="DimGray" BorderBrush="Transparent">
+                <StackPanel Grid.Row="2">
+                    <Button Command="{Binding CreateJourneyCommand}" Height="45" Width="160" Margin="0 40 0 0" Background="DimGray" BorderBrush="Transparent">
                         <Grid Width="145">
                             <materialDesign:PackIcon Kind="UploadOutline" VerticalAlignment="Center"/>
                             <TextBlock HorizontalAlignment="Center" Text="Thêm chuyến đi" TextWrapping="Wrap" Margin="22,0,17,0" Width="106"/>
                         </Grid>
                     </Button>
-                </Grid>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Cài đặt" Background="Gray" Margin="0 20 100 0" Command="{Binding SettingCommand}">
+                        <materialDesign:PackIcon Kind="Settings" Height="35" Width="35"/>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Border>
 
