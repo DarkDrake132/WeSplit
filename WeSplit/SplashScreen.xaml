@@ -18,7 +18,7 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <ToggleButton Command="{Binding CloseDialogCommand}" Background="Black" Margin="10" Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" ToolTip="Không mở hộp thoai này vào lần sau" IsChecked="{Binding CloseDialog}" />
-            <Button Margin="10" Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=SplashScreenWindow}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" ToolTip="Đóng" Background="Red" Height="30" Width="30" BorderBrush="Transparent">
+            <Button Margin="10" Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=SplashScreenWindow}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" ToolTip="Đóng" Height="30" Width="30" Background="#FFD11C1C" BorderBrush="Transparent">
                 <materialDesign:PackIcon Kind="CloseCircleOutline"/>
             </Button>
         </StackPanel>

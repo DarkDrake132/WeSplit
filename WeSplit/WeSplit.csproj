@@ -228,6 +228,7 @@
     <Resource Include="Images\doi-co-hong-da-lat-3.jpg" />
     <Resource Include="Images\langbiang-du-lich-da-lat.jpg" />
     <Resource Include="Images\thanh-pho-da-lat.jpg" />
+    <Resource Include="Images\wordart1.jpg" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

@@ -32,8 +32,8 @@
                     <DropShadowEffect BlurRadius="20" Color="#FFD8D8D8" RenderingBias="Quality" ShadowDepth="1" />
                 </Grid.Effect>
 
-                <Grid Grid.Row="0" Background="#FFA46FE4">
-                    <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Webdings" Foreground="#FFBC96EA" FontSize="16"/>
+                <Grid Grid.Row="0" Background="Transparent">
+                    <Image Source="Images/wordart1.jpg" Stretch="Fill" RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Grid>
 
                 <StackPanel Grid.Row="1">
