@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace WeSplit.ViewModel
 {
-    class SettingScreenViewModel
+    class SettingScreenViewModel : BaseViewModel
     {
         ICommand CheckCommand { get; set; }
         ICommand ConfirmCommand { get; set; }
