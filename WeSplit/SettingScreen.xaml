@@ -12,8 +12,9 @@
     <Grid>
         <StackPanel>
             <CheckBox x:Name="SettingSplashScreen" Content="Show the dialog!"
-                  VerticalAlignment="Center" Height="50" FontSize="15" Command="{Binding CheckCommand}"/>
+                  VerticalAlignment="Center" Height="50" FontSize="15" IsChecked="{Binding CheckDialog}"/>
             <Button Content="OK" Width="70" Height="30" Command="{Binding ConfirmCommand}" />
+            
         </StackPanel>
     </Grid>
 </Window>

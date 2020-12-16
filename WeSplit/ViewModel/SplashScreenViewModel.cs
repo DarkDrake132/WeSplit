@@ -13,14 +13,16 @@ namespace WeSplit.ViewModel
     class SplashScreenViewModel : BaseViewModel
     {
         public ICommand CloseCommand { get; set; }
-        public ICommand CloseDialogCommand { get; set; }
+        //public ICommand CloseDialogCommand { get; set; }
         public string ShowImage { get => _ShowImage; set => _ShowImage = value; }
         public string SplashTitle { get => _SplashTitle; set => _SplashTitle = value; }
         public string LocationName { get => _LocationName; set => _LocationName = value; }
+        public bool CloseDialog { get => _CloseDialog; set => _CloseDialog = value; }
 
         private string _ShowImage;
         private string _SplashTitle;
         private string _LocationName;
+        private bool _CloseDialog;
 
         public Random rng = new Random();
         public SplashScreenViewModel()
@@ -37,19 +39,23 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
+                var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["checkShowDialog"].Value = (CloseDialog)?"false":"true";
+                config.Save(ConfigurationSaveMode.Minimal);
+
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 p.Close();
             });
-            CloseDialogCommand = new RelayCommand<object>((p) =>
-            {
-                return true;
-            }, (p) =>
-             {
-                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                 config.AppSettings.Settings["checkShowDialog"].Value = "false";
-                 config.Save(ConfigurationSaveMode.Minimal);
-             });
+            //CloseDialogCommand = new RelayCommand<object>((p) =>
+            //{
+            //    return true;
+            //}, (p) =>
+            // {
+            //     var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            //     config.AppSettings.Settings["checkShowDialog"].Value = "false";
+            //     config.Save(ConfigurationSaveMode.Minimal);
+            // });
         }
     }
 }
