@@ -11,7 +11,7 @@ using System.IO;
 
 namespace WeSplit.ViewModel
 {
-    class UpdateScreenViewModel : BaseViewModel
+    public class UpdateScreenViewModel : BaseViewModel
     {
         private ObservableCollection<IMAGE_DESTINATION> _ListImage;
         public ObservableCollection<IMAGE_DESTINATION> ListImage { get => _ListImage; set { _ListImage = value;  OnPropertyChanged(); } }
