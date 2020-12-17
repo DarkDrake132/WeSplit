@@ -8,7 +8,7 @@
         x:Name="MainWindowScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="700" Width="1064" WindowStartupLocation="CenterScreen"
+        Title="Trang chủ" Height="700" Width="1064" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>

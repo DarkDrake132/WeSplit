@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WeSplit"
         mc:Ignorable="d"
         DataContext="{StaticResource CreateJourneyVM}"
-        Title="CreateJourneyScreen" Height="460" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Thêm chuyến đi" Height="460" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF494949">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"></ColumnDefinition>
