@@ -30,4 +30,4 @@
     
 ### Các chức năng, tính năng đề nghị cộng điểm:
 
-### Link video demo: [video_demo](https://duckduckgo.com).
+### Link video demo: https://www.youtube.com/watch?v=nno2vkc0vAU&feature=youtu.be
