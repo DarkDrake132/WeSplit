@@ -11,13 +11,13 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         x:Name="SplashScreenWindow"
-        Background="Gray">
+        Background="#FF2C2B2B">
     <Window.Resources>
         <local:AbsoluteConverter x:Key="converter"/>
     </Window.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-            <ToggleButton Background="Black" Margin="10" Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" ToolTip="Không mở hộp thoai này vào lần sau" IsChecked="{Binding CloseDialog}" />
+            <ToggleButton Background="White" Margin="10" Style="{StaticResource MaterialDesignSwitchDarkToggleButton}" ToolTip="Không mở hộp thoai này vào lần sau" IsChecked="{Binding CloseDialog}" />
             <Button Margin="10" Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=SplashScreenWindow}" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" HorizontalAlignment="Left" ToolTip="Đóng" Height="30" Width="30" Background="#FFD11C1C" BorderBrush="Transparent">
                 <materialDesign:PackIcon Kind="CloseCircleOutline"/>
             </Button>

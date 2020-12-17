@@ -10,11 +10,10 @@
         WindowStartupLocation="CenterScreen"
         Title="SettingScreen" Height="130" Width="400" ResizeMode="NoResize">
     <Grid>
-        <StackPanel>
-            <CheckBox x:Name="SettingSplashScreen" Content="Show the dialog!"
-                  VerticalAlignment="Center" Height="50" FontSize="15" IsChecked="{Binding CheckDialog}"/>
-            <Button Content="OK" Width="70" Height="30" Command="{Binding ConfirmCommand}" />
-            
+        <StackPanel Background="#FF2C2B2B">
+            <CheckBox x:Name="SettingSplashScreen" Content="Show Splashscreen!"
+                  VerticalAlignment="Center" Height="50" FontSize="15" IsChecked="{Binding CheckDialog}" Foreground="White" Background="White"/>
+            <Button Content="OK" Width="70" Height="30" Command="{Binding ConfirmCommand}" Background="#FF494747" BorderBrush="Transparent"/>
         </StackPanel>
     </Grid>
 </Window>

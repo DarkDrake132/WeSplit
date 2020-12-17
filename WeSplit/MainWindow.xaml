@@ -59,8 +59,8 @@
                             <TextBlock HorizontalAlignment="Center" Text="Thêm chuyến đi" TextWrapping="Wrap" Margin="22,0,17,0" Width="106"/>
                         </Grid>
                     </Button>
-                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Cài đặt" Background="Gray" Margin="0 20 100 0" Command="{Binding SettingCommand}">
-                        <materialDesign:PackIcon Kind="Settings" Height="35" Width="35"/>
+                    <Button Height="26" Width="26" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Cài đặt" Background="Gray" Margin="0 20 100 0" Command="{Binding SettingCommand}">
+                        <materialDesign:PackIcon Kind="Settings" Height="20" Width="20"/>
                     </Button>
                 </StackPanel>
             </Grid>
