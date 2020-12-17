@@ -195,9 +195,9 @@ namespace WeSplit.ViewModel
                 return true;
             }, (p) =>
             {
-                if(DataProvider.Ins.DB.MEMBERs.Where(x => x.C_name == MemberDisplayName).Count() == 0)
+                if(DataProvider.Ins.DB.MEMBERs.Count(x => x.C_name == MemberDisplayName && x.idJourney == Global.IntData) == 0)
                 {
-                    var nextId = DataProvider.Ins.DB.MEMBERs.Max(x => x.id);
+                    var nextId = DataProvider.Ins.DB.MEMBERs.Count(x => x.idJourney == Global.IntData);
                     nextId++;
                     var member = new MEMBER();
                     //add new member
