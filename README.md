@@ -4,7 +4,7 @@
 | --- | --- | --- | --- |
 | Nguyễn Vũ Hà	|	18120175|	kevinpro2000@gmail.com	|	100% |
 | Nguyễn Đình Khôi |	18120042 |	ngdkhoi27600@gmail.com | 100% |
-|Đoàn Xuân Bách	|	18120056	| doanxuanbach132@gmail.com	| 100% |
+|Đoàn Xuân Bách	|	18120156	| doanxuanbach132@gmail.com	| 100% |
 
 ### Các chức năng đã hoàn thành
 1. Splash Screen
